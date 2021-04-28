@@ -29,29 +29,18 @@ body {
 	float: left;
 }
 
-#nav {
-	width: 100%;
-	float: left;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	overflow: hidden;
-	background-color: #5B3333;
+.navbar {
+  overflow: hidden;
+  background-color: #333;
 }
-#nav li {
-	float: left;
-}
-#nav li a {
-	display: block;
-	color: #FFFFFF;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;  
-}
-#nav li a:hover {
-	color: #000000;
-	background-color: #996B6B;   
-	
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 .dropdown {
@@ -59,7 +48,20 @@ body {
   overflow: hidden;
 }
 
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
 
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
 
 .dropdown-content {
   display: none;
