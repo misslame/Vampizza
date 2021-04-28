@@ -1,0 +1,99 @@
+tab1 { padding-left: 4em; }
+
+@font-face {  
+    font-family:  Candara;
+    src: url('fonts/Candara.ttf');
+    
+}
+
+body {
+    font-family: Candara;
+	background-color: #5B0000;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+	
+.container {
+	width: 1000px;
+	margin: auto; 
+}
+
+.content{
+	width: 940px;
+	color: #FFFFFF;
+	background: #A08888;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+#nav {
+	width: 100%;
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	overflow: hidden;
+	background-color: #5B3333;
+}
+#nav li {
+	float: left;
+}
+#nav li a {
+	display: block;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;  
+}
+#nav li a:hover {
+	color: #000000;
+	background-color: #996B6B;   
+	
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.footer{
+	color: #FFFFFF;
+	padding-top:30px;
+	padding-left:30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
+	background: #5B3333;
+	position: relative;
+	clear: both;
+}
