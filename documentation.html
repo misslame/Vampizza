@@ -1,283 +1,87 @@
 <!doctype html>
+<!--
+  Instructions:
+  - Save this file.
+  - Replace "USER" with your GitHub username.
+  - Replace "REPO" with your GitHub repo name.
+  - Replace "Your Project" with your project name.
+  - Upload this file (or commit to GitHub Pages).
+  Customize as you see fit!
+-->
+
 
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <title>Documentation and Update Log for UNNAMED</title>
-    <meta name="keywords" content="tycoon">
-    <meta name="description" content="Home for Unnamed Tycoon Game's Documentation">
-	<link rel="stylesheet" href="stylesheet.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Documentation and Update Log for UNNAMED</title>
+	<meta name="keywords" content="tycoon">
+	<meta name="description" content="Home for Unnamed Tycoon Game's Documentation">
+	<link rel="stylesheet" href="assets/stylesheet.css">
 
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
 
-  <title>Your Project</title>
+	<title>Your Project</title>
 
-  <!-- Flatdoc -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
-  <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
+	<!-- Flatdoc -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
 
-  <!-- Flatdoc theme -->
-  <link  href='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css' rel='stylesheet'>
-  <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
+	<!-- Flatdoc theme -->
+	<link  href='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css' rel='stylesheet'>
+	<script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
+	
+	<style>
+		.menu a,
+		.menu a:visited {
+		  color: #C60000;
+		}
+		
+		.menu a:hover {
+		  color: #4C0021;
+		}
+	</style
+	
+	<!-- Meta -->
+	<meta content="Your Project" property="og:title">
+	<meta content="Your Project description goes here." name="description">
 
-  <!-- Meta -->
-  <meta content="Your Project" property="og:title">
-  <meta content="Your Project description goes here." name="description">
-
-  <!-- Initializer -->
-  <script>
-    Flatdoc.run({
-      fetcher: Flatdoc.github('USER/REPO')
-    });
-  </script>
-</head>
+	<!-- Initializer -->
+	<script>
+	Flatdoc.run({
+		fetcher: Flatdoc.github('misslame/Vampizza')
+	});
+	</script>
+	</head>
 	<div class="navbar">
 		<a href="index.html">Home</a>
 		<a href="current_progress.html">Current Progress</a>
 		<a href="documentation.html">Documentation</a>
 	</div>
-<body role='flatdoc' class="big-h3 large-brief no-literate">
-  <div class='header'>
-    <div class='left'>
-      <h1>UNNAMED</h1>
-      <ul>
-        <li><a href='https://github.com/misslame/UnnamedTycoonGame'>View on GitHub</a></li>
-        <li><a href='https://github.com/misslame/UnnamedTycoonGame/issues'>Issues</a></li>
-		 <li><a href="https://ricostacruz.com/flatdoc">Documentation Template (FlatDoc)</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class='content-root'>
-    <div class='menubar'>
-		<div class='menu section' role='flatdoc-menu'>
-			<ul>
-				<li id="root-item" class="level-0">
-					<ul class="level-1" id="root-list">
-					
-						<li id="home-item" class="level-1">
-							<a id="x" href="" class="level-1"> Home</a>
-							<ul class="level-2" id="home-list">
-								<li id="home-about-item" class="level-2">
-									<a id="home-about-link" href="" class="level-2" style="color: #C60000;">About</a>
-								</li>
-								<li id="home-howto-item" class="level-2">
-									<a id="home-howto-link" href="" class="level-2" style="color: #C60000;">How to Play</a>
-								</li>
-							</li>
-						</li>
-						
-						<li id="player-item" style="margin-top: 20px;" class="level-1">
-							<a id="gameplay-player-link" href="" class="level-1">Player</a>
-							<ul class="level-2" id="player-list">
-								<li id="gameplay-player-item" class="level-2">
-									<a id="gameplay-player-level-link" href="" class="level-2" style="color: #C60000;">Level</a>
-								</li>
-								<li id="gameplay-player-thirst-item" class="level-2">
-									<a id="gameplay-player-thirst-link" href="" class="level-2" style="color: #C60000;">Blood Thirst Meter</a>
-								<li>
-								<li id="gameplay-player-inventory-item" class="level-2">
-									<a id="gameplay-player-inventory-link" href="" class="level-2" style="color: #C60000;">Inventory</a>
-								<li>
-								<li id="gameplay-player-currency-item" class="level-2">
-									<a id="gameplay-player-currency-link" href="" class="level-2" style="color: #C60000;">Currency</a>
-								<li>
-								<li id="gameplay-player-pizza-item" class="level-2">
-									<a id="gameplay-player-pizza-link" href="" class="level-2" style="color: #C60000;">Pizza</a>
-								<li>
-							</ul>
-						</li>
-						
-						<li id="town-item" style="margin-top: 20px;" class="level-1">
-							<a id="gameplay-town-link" href="" class="level-1">Town</a>
-							<ul class="level-2" id="town-list">
-								<li id="gameplay-town-item" class="level-2">
-									<a id="gameplay-town-attributes-link" href="" class="level-2" style="color: #C60000;">Attributes</a>
-									<ul id="gameplay-town-attributes-list" class="level-3">
-										<li id="gameplay-town-attributes-citizen-item" class="level-3">
-											<a id="gameplay-town-attributes-citizen-link" style="margin-left:10px;color: #C60000;" href="" class="level-3">Citizen Count</a>
-										</li>
-										<li id="gameplay-town-attributes-era-item" class="level-3">
-											<a id="gameplay-town-attributes-era-link" style="margin-left:10px;color: #C60000;" href="" class="level-3">Technological Era</a>
-										</li>
-									</ul>
-								<li>
-								<li id="gameplay-town-resources-item" class="level-2">
-									<a id="gameplay-town-resources-link" href="" class="level-2" style="color: #C60000;">Resources</a>
-									<ul id="gameplay-town-resources-list" class="level-3">
-										<li id="gameplay-town-resources-blood-item" class="level-3">
-											<a id="gameplay-town-resources-blood-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Blood</a>
-										</li>
-										<li id="gameplay-town-resources-wheat-item" class="level-3">
-											<a id="gameplay-town-resources-wheat-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Wheat</a>
-										</li>
-										<li id="gameplay-town-resources-tomato-item" class="level-3">
-											<a id="gameplay-town-resources-tomato-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Tomato</a>
-										</li>
-										<li id="gameplay-town-resources-milk-item" class="level-3">
-											<a id="gameplay-town-resources-milk-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Milk</a>
-										</li>
-										<li id="gameplay-town-resources-flour-item" class="level-3">
-											<a id="gameplay-town-resources-flour-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Flour</a>
-										</li>
-										<li id="gameplay-town-resources-cheese-item" class="level-3">
-											<a id="gameplay-town-resources-cheese-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Cheese</a>
-										</li>
-									</ul>
-								<li>
-								<li id="gameplay-town-structures-item" class="level-2">
-									<a id="gameplay-town-structures-link" href="" class="level-2" style="color: #C60000;">Structures</a>
-									<ul id="gameplay-town-structures-list" class="level-3">
-										<li id="gameplay-town-structures-home-item" class="level-3">
-											<a id="gameplay-town-structures-home-link" style="margin-left:10px;color: #C60000;" href="" class="level-3">Player Home</a>
-										</li>
-										<li id="gameplay-town-structures-towny-item" class="level-3">
-											<a id="gameplay-town-structures-towny-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Towny Home</a>
-										</li>
-										<li id="gameplay-town-structures-farm-item" class="level-3">
-											<a id="gameplay-town-structures-farm-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Farm Plot</a>
-										</li>
-										<li id="gameplay-town-structures-barn-item" class="level-3">
-											<a id="gameplay-town-structures-barn-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Barn</a>
-											
-										<li id="gameplay-town-structures-hospital-item" class="level-3">
-											<a id="gameplay-town-structures-hospital-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Hospital</a>
-										</li>
-										</li>
-										<li id="gameplay-town-structures-flour-item" class="level-3">
-											<a id="gameplay-town-structures-flour-link" style="margin-left:10px;color: #C60000;" href="" class="level-3">Flour Facility</a>
-										</li>
-										<li id="gameplay-town-structures-cheese-item" class="level-3">
-											<a id="gameplay-town-structures-cheese-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Cheese Facility</a>
-										</li>
-										<li id="gameplay-town-structures-research-item" class="level-3">
-											<a id="gameplay-town-structures-research-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Research Facility</a>
-										</li>
-										<li id="gameplay-town-structures-storage-item" class="level-3">
-											<a id="gameplay-town-structures-storage-link" style="margin-left:10px;color: #C60000;" href="" class="level-3" >Storage Facility</a>
-										</li>
-									</ul>
-								<li>
-							</ul>
-						</li>
-						<li id="progression-item" style="margin-top: 20px;" class="level-1">
-							<a id="gameplay-progression-link" href="" class="level-1">Progression</a>
-							<ul class="level-2" id="progression-list">	
-								<li id="gameplay-progression-item" class="level-2">
-									<a id="gameplay-progression-orders-link" href="" class="level-2" style="color: #C60000;">Pizza Orders</a>
-								</li>
-							</li>
-						</li>
-						
-					</ul>
-				</li>
-			</ul>
+	<body role='flatdoc' class="big-h3 large-brief no-literate">
+		<div class='header'>
+			<div class='left'>
+				<h1>Vampizza</h1>
+				<ul>
+					<li><a href='https://github.com/misslame/UnnamedTycoonGame'>View on GitHub</a></li>
+					<li><a href='https://github.com/misslame/UnnamedTycoonGame/issues'>Issues</a></li>
+					<li><a href="https://ricostacruz.com/flatdoc">Documentation Template (FlatDoc)</a></li>
+				</ul>
+			</div>
+			<div class='right'>
+				<!-- GitHub buttons: see http://ghbtns.com -->
+				<iframe src="http://ghbtns.com/github-btn.html?user=misslame&amp;repo=Vampizza&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+			</div>
 		</div>
-    </div>
-    <div role='flatdoc-content' class='content'>
-	
-		<h1 id="home">Unnamed</h1>
-		<p>Unnamed is a Isometric Tycoon Farming game based around a vampire traveling through time to deliver and fufill the most delicous pizza. 
-		Players play as the vampire establishing and building up an empire that specializes in pizza making all while maintaining anonymity and their thirst for blood.</p>
 
-		
-		<h3 id="about">About</h3>
-			<h4>Gameplay Genre</h4>
-				<p>This is a <b>2D Isometric Tycoon Resource-Based Farming Simulator</b></p>
-				<p><i>The genre may be updated in future release to add turn based fighting mechanics.</i></p>
-			<h4>Game Engine</h4>
-				<p>Unity 2020.1.0</p> 
-			<h4>Current Version of UNNAMED</h4>
-				<i>-0.0.1</i>
-		<h3 id="howto">How to Play</h3>
-		
-		<h2 id="player">Player</h2>
-			<h4 id="level">Level</h4>
-				<p>Level of the player represents the "strength" of the player. 
-				Levels are gained through experience rewards. There is no <b>maximum</b> level allowing 
-				the game to be ever scaling. A level can directly effect the difficulty of the game 
-				as various mechanics may rely on it for their difficulty.</p>
-				
-				<p> Experience can be gained through:</p>
-				<ul>
-					<li>Unlocking/Upgrading/Building Town Structures</li>
-					<li>Gathering Resources</li>
-					<li>Completing Missions/Orders</li>
-				</ul>
-			<h4 id="thirst">Blood Thirst Meter</h4>
-				<p>The thirst meter represents the player's need to feed on human blood. 
-				A full meter is a full vampire while an empty meter is a <b>very thirsty</b> 
-				vampire. The consequence of an empty meter is the loss of citizen count 
-				equal to the vampire's level (<b>One towny loss per every player level</b>). 
-				The amount of blood needed <b>daily</b> also depends on the player's level where 10 units
-				of blood is needed per every level.</p>
-				
-				<p>A level 20 vampire will need 200 units of blood to be sustained and will lose 20 townies upon an empty meter</p>
-				
-				<p><i>Fun Fact: The average human is around 10 units of blood (1.2-1.5 gallons) - American Red Cross</i></p>
-			<h4 id="inventory">Inventory</h4>
-				<p>The location for all of the player's resources excluding Blood and currency. 
-				Maximum allowed space depends entirely on the built structures in the player's
-				town. To increase the maximum allowed items in inventory, upgrading and purchasing 
-				<a href="" style="color: #C60000;">Storage Facilities</a> is required. The player initially starts at a maximum of <b>500</b>
-				items allowed in inventory. </p> 
-				
-			<h4 id="currency">Currency</h4>
-				<p>This is the driving force in upgrading the player's town. Currency allows the 
-				player to purchase structures, resources, items, and upgrades. The form of currency evolves 
-				alongside the town and it's technology. </p>
-				
-				<ul>
-					<li>Medieval Era: Coins</li>
-					<li>Other Eras TBA</li>
-				</ul>
-			<h4 id="pizza">Pizza</h4>
-				<p>The player's main focus should be to make pizza to attract tourists to their town.
-				Pizzas can be made through <a style="color: #C60000;"> resources </a> gathered by town efforts. Pizza isn't an actual inventory
-				item but instead recipe lists and how many pizzas can be made with each.  </p>
-		
-		<h2 id="player">Town</h2>
-			<h3 id="attributes">Attributes</h3>
-				<h4 id="citizen">Citizen Count</h4>
-					<p>There are a number of citizens that belong to the Vampire Player's town. Building 
-					<a style="color: #C60000;">towny homes</a> allows for citizens to move in to the town and contribute to 
-					the pizza making that the town is famous for. Each citizen in the player's town represents 
-					0.025x production speed on <a style="color: #C60000;">farm plots,</a> and 
-					<a style="color: #C60000;">crafting stations</a>.</p>
-				
-				
-				<h4 id="era">Technological Era</h4>
-					<p>Vampires are immortal and thus live until they are are murdered. 
-					To incorporate this aspect in to the game, the player can experience different 
-					timelines where their upgrades, currency, structures, etc change with the current era. Some 
-					<a style="color: #C60000;">structures,</a> <a style="color: #C60000;">resources</a>, and upgrades
-					are only unlocked through entering a new era.  
-			<h3 id="resources">Resources</h3>
-				<h4 id="blood">Blood</h4>
-				<h4 id="wheat">Wheat</h4>
-				<h4 id="tomato">Tomato</h4>
-				<h4 id="milk">Milk</h4>
-				<h4 id="flower">Flour</h4>
-				<h4 id="cheese">Cheese</h4>
-			<h3 id="structures">Structures</h3>
-				<h4 id="home">Player Home</h4>
-				<h4 id="towny">Towny Home</h4>
-				<h4 id="farm">Farm Plot</h4>
-				<h4 id="barn">Barn</h4>
-				<h4 id="hospital">Hospital</h4>
-				<h4 id="flour">Flour Facility</h4>
-				<h4 id="cheese">Cheese Facility</h4>
-				<h4 id="research">Research Facility</h4>
-				<h4 id="storage">Storage Facility</h4>
-		<h2 id="player">Attributes</h2>
-			<h3 id="orders">Pizza Orders</h3>
-		
-		
-	</div>
-  </div>
+		<div class='content-root'>
+			<div class='menubar'  >
+				<div class='menu section' role='flatdoc-menu' ></div>
+			</div>
+			<div role='flatdoc-content' class='content'></div>
+		</div>
 
-</body>
+	</body>
 </html>
