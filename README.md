@@ -13,6 +13,10 @@ This is a **2D Isometric Tycoon Resource-Based Farming Simulator**
 Unity 2020.1.0
 ### Current Version of Vampizza 
 *-0.0.1*
+
+## Get Involved
+If you're a student looking to help make a game whether you're an art student, C.S. student, music student, or similar you're welcome to join! We also appreciate those who want to help test the game, or provide mentorship in our quest to develop in Unity. First head on over to the [project discord](https://discord.gg/vhcHKKP9df) to communicate with others who are there. There might not be many of us there, but you're welcome to join us. We follow "due dates" to ensure things get done at some point. Eventually, we will also limit the number of developers. 
+
 ## How to Play
 		
 # Player
