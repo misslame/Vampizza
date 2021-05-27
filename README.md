@@ -38,7 +38,8 @@ of blood is needed per every level.
 A level 20 vampire will need 200 units of blood to be sustained and will lose 20 townies upon an empty meter
 				
 *Fun Fact: The average human is around 10 units of blood (1.2-1.5 gallons) - American Red Cross*
-	#### Inventory
+
+#### Inventory
 The location for all of the player's resources excluding Blood and currency. 
 Maximum allowed space depends entirely on the built structures in the player's
 town. To increase the maximum allowed items in inventory, upgrading and purchasing 
