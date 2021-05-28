@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class CameraControler : MonoBehaviour{
 
+    public float PAN_MIN_X = 20;
+    public float PAN_MAX_X = 20;
+
+    public float PAN_MIN_Y = 10;
+    public float PAN_MAX_Y = 10;
+
     public float panSpeed = 20f;
     public float panBorder = 10f;
 
@@ -36,6 +42,9 @@ public class CameraControler : MonoBehaviour{
 
             pos.x += panSpeed * Time.deltaTime;
         }
+
+        pos.x = Mathf.Clamp(pos.x, -PAN_MIN_X, PAN_MAX_X);
+        pos.y = Mathf.Clamp(pos.y, -PAN_MIN_Y, PAN_MAX_Y);
 
         transform.position = pos;
 
