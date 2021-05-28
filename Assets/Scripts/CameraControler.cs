@@ -55,10 +55,11 @@ public class CameraControler : MonoBehaviour{
             pos.z -= panSpeed * Time.deltaTime;
         }
 
-        int scroll = (int)(Input.GetAxis("Mouse ScrollWheel") * 10);
-        pos.z += scroll * scrollSpeed;
+        int scroll = (int)(Input.GetAxis("Mouse ScrollWheel") * 10); // ensure number is equal to or greater than 1 or less than -1
+        pos.z += scroll * scrollSpeed; // must be int multiplication otherwise screen breaks, dun ask me. - misslame
 
 
+        // clips minimum/maximum positions on axis
         pos.x = Mathf.Clamp(pos.x, -PAN_MIN_X, PAN_MAX_X);
         pos.y = Mathf.Clamp(pos.y, -PAN_MIN_Y, PAN_MAX_Y);
         pos.z = Mathf.Clamp(pos.z, PAN_MIN_Z, PAN_MAX_Z);
