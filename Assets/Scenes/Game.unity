@@ -25049,5 +25049,8 @@ MonoBehaviour:
   PAN_MAX_X: 20
   PAN_MIN_Y: 10
   PAN_MAX_Y: 10
+  PAN_MIN_Z: -15
+  PAN_MAX_Z: -5
   panSpeed: 20
   panBorder: 10
+  scrollSpeed: 2
