@@ -653,7 +653,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   levelText: {fileID: 1329713548}
-  levelBar: {fileID: 0}
+  levelBar: {fileID: 624118262}
 --- !u!1 &1458434353
 GameObject:
   m_ObjectHideFlags: 0
