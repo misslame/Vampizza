@@ -31,6 +31,6 @@ public class LevelDisplay : MonoBehaviour {
 
     // Sets the display to the current level. 
     void setLevelText(string level) {
-        levelText.text = level.ToString()
+        levelText.text = level.ToString();
     }
 }
