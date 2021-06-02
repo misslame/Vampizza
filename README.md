@@ -10,7 +10,7 @@ This is a **2D Isometric Tycoon Resource-Based Farming Simulator**
 *The genre may be updated in future release to add turn based fighting mechanics.*
 
 ### Game Engine 
-Unity 2020.1.0
+Unity 2020.3.5
 ### Current Version of Vampizza 
 *-0.0.1*
 
