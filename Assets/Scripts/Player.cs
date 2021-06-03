@@ -22,6 +22,7 @@ public class Player : MonoBehaviour{
     public CurrencyDisplay currencyDisplay;
 
     //CUSTOM CONTRUCTOR
+
     public Player(){
         exp = 0f;
         level = 1;
@@ -62,8 +63,7 @@ public class Player : MonoBehaviour{
             levelDisplay.SetLevelText(level);
             levelBar.SetExperienceNeeded(EXP_MODIFIER * level);
             ChangeExp(temp);
-        }
-        else{
+        } else{
             exp += expMod;
             levelBar.SetCurrentExperience(exp);
         }

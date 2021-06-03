@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LevelDisplay : MonoBehaviour {
 
     public Text levelText;
