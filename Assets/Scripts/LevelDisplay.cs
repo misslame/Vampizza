@@ -7,12 +7,10 @@ public class LevelDisplay : MonoBehaviour {
     public Text levelText;
 
     // Start is called before the first frame update
-    void Start() {
-    }
+    void Start() { }
 
     // Update is called once per frame **** TEMPORARY *****
-    void Update() {
-    }
+    void Update() { }
 
     // Sets the display to the current level. 
     public void SetLevelText(ulong level) {

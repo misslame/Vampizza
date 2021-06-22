@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour{
+public class Player : MonoBehaviour {
 
     //CONSTANTS
     const float EXP_MODIFIER = 50f;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour{
 
 
     // Start is called before the first frame update
-    void Start(){
+    void Start() {
         exp = 0f;
         level = 1;
         currency = 1000000;
@@ -48,13 +48,13 @@ public class Player : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update() {
         if (Input.GetKeyDown(KeyCode.Space)){
             ChangeExp(5000);
         }
     }
 
-    public void ChangeExp(float expMod){
+    public void ChangeExp(float expMod) {
         float temp;
         temp = (exp + expMod) - (EXP_MODIFIER * level);
         if(temp >=0){
