@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 352276614}
   - component: {fileID: 352276613}
   m_Layer: 5
-  m_Name: InventoryTitleText
+  m_Name: PanelTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 466806971}
   - component: {fileID: 466806970}
   m_Layer: 5
-  m_Name: InventoryTitleBackgroundImage
+  m_Name: PanelTitleBackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,10 +864,9 @@ GameObject:
   - component: {fileID: 603731184}
   - component: {fileID: 603731183}
   - component: {fileID: 603731186}
-  - component: {fileID: 603731185}
   - component: {fileID: 603731187}
   m_Layer: 5
-  m_Name: InventoryPanelSlider
+  m_Name: PanelSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,19 +937,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603731181}
   m_CullTransparentMesh: 1
---- !u!114 &603731185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603731181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189fd0d8c4818264495838f59b3cef18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryPanel: {fileID: 603731181}
 --- !u!95 &603731186
 Animator:
   serializedVersion: 3
@@ -984,6 +970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHandleRectTransform: {fileID: 1439527437}
   toggleShopOrInventory: {fileID: 551384817}
+  inventoryPanel: {fileID: 603731181}
+  panelTitle: {fileID: 352276613}
 --- !u!1 &617526359
 GameObject:
   m_ObjectHideFlags: 0
@@ -28954,8 +28942,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603731185}
-        m_TargetAssemblyTypeName: InventorySlider, Assembly-CSharp
+      - m_Target: {fileID: 603731187}
+        m_TargetAssemblyTypeName: InventoryAndShopController, Assembly-CSharp
         m_MethodName: ShowHideMenu
         m_Mode: 1
         m_Arguments:
