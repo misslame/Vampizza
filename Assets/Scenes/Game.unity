@@ -28341,12 +28341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7b2d15678e5314195f162211faf27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exp: 0
-  level: 1
-  currency: 0
-  playerName: Chuck
-  citizen: 100
-  blood: 0
   levelBar: {fileID: 624118262}
   levelDisplay: {fileID: 1329713550}
   citizenDisplay: {fileID: 1756645767}
