@@ -2,6 +2,7 @@
 # personal adds
 #######################################
 .vsconfig
+/save.bin
 #######################################
 # This .gitignore file should be placed at the root of your Unity project directory
 #
@@ -133,7 +134,7 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
+.meta
 *.obj
 *.iobj
 *.pch
