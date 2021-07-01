@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour {
     // Update is called once per frame
     void Update() { }
 
-    public void Close(){
+    public void Close() {
         Application.Quit();
         Debug.Log("Exit Game Successful");
     }

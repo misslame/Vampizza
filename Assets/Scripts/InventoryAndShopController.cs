@@ -14,6 +14,8 @@ public class InventoryAndShopController : MonoBehaviour {
     // Modified objects
     public Text panelTitle;
 
+    public Inventory inventory;
+
     private void Awake() {
 
         handlePosition = uiHandleRectTransform.anchoredPosition;
@@ -50,6 +52,18 @@ public class InventoryAndShopController : MonoBehaviour {
                 animator.SetBool("ShowInventory", !isOpen);
             }
         }
+    }
+
+    public void OpenResourcesTab() {
+        inventory.PopulateResourcesTab();
+    }
+
+    public void OpenStructuresTab() {
+        inventory.PopulateStructuresTab();
+    }
+
+    public void OpenDecorTab() {
+        inventory.PopulateDecorTab();
     }
 
     // Start is called before the first frame update

@@ -7,31 +7,31 @@ public static class GameState {
     private static PlayerData playerData = new PlayerData();
 
     public static void LoadState(string filename) {
-      Debug.Log("Loading from " + filename + "...");
+        Debug.Log("Loading from " + filename + "...");
 
-      if (!File.Exists(filename)) {
-        Debug.Log("Save file not found");
-        return;
-      }
+        if (!File.Exists(filename)) {
+            Debug.Log("Save file not found");
+            return;
+        }
 
-      FileStream saveFile = File.Open(filename, FileMode.Open);
-      BinaryReader reader = new BinaryReader(saveFile);
+        FileStream saveFile = File.Open(filename, FileMode.Open);
+        BinaryReader reader = new BinaryReader(saveFile);
 
-      playerData.Deserialize(reader);
+        playerData.Deserialize(reader);
 
-      Debug.Log("Load successful");
+        Debug.Log("Load successful");
     }
 
     public static void SaveState(string filename) {
-      Debug.Log("Saving to " + filename + "...");
+        Debug.Log("Saving to " + filename + "...");
 
-      FileStream saveFile = File.Open(filename, FileMode.Create);
-      BinaryWriter writer = new BinaryWriter(saveFile);
+        FileStream saveFile = File.Open(filename, FileMode.Create);
+        BinaryWriter writer = new BinaryWriter(saveFile);
 
-      playerData.Serialize(writer);
+        playerData.Serialize(writer);
     }
 
     public static PlayerData GetPlayerData() {
-      return playerData;
+        return playerData;
     }
 }

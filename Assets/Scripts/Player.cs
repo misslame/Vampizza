@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
 
     //CUSTOM CONTRUCTOR
 
-    public Player(){
+    public Player() {
         data = GameState.GetPlayerData();
 
         exp = 0f;
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space)) {
             ChangeExp(5000);
         }
     }
@@ -85,13 +85,13 @@ public class Player : MonoBehaviour {
     public void ChangeExp(float expMod) {
         float temp;
         temp = (exp + expMod) - (EXP_MODIFIER * level);
-        if(temp >=0){
+        if (temp >= 0) {
             level++;
             exp = 0f;
             levelDisplay.SetLevelText(level);
             levelBar.SetExperienceNeeded(EXP_MODIFIER * level);
             ChangeExp(temp);
-        } else{
+        } else {
             exp += expMod;
             levelBar.SetCurrentExperience(exp);
         }
