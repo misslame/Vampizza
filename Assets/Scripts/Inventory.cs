@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour {
         Debug.Log("populate Resources");
         
         Sprite newSprite;
-        GameObject newSlot = new GameObject();
+        GameObject newSlot = firstSlot;
 
         EmptyInventoryPanel();
 
@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour {
         Debug.Log("populate Structures");
         
         Sprite newSprite;
-        GameObject newSlot = new GameObject();
+        GameObject newSlot = firstSlot;
 
         EmptyInventoryPanel();
 
