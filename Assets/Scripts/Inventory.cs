@@ -97,6 +97,7 @@ public class Inventory : MonoBehaviour {
         EmptyInventoryPanel();
 
         GameObject newSlot = Instantiate(firstSlot, transform);
+        newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = " ";
         Destroy(firstSlot);
 
         firstSlot = newSlot;
