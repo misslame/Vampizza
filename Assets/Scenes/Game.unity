@@ -1670,6 +1670,7 @@ GameObject:
   - component: {fileID: 1115053807}
   - component: {fileID: 1115053810}
   - component: {fileID: 1115053809}
+  - component: {fileID: 1115053808}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -1698,6 +1699,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1115053808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115053806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c131392cbc00a4fb4df2c5a838c48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryPanelSlider: {fileID: 9100000, guid: 32b1af5b30401c34db3aa2796d602d20, type: 2}
 --- !u!114 &1115053809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28214,7 +28228,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1900339823}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.5954661
+  m_Size: 0.59546614
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

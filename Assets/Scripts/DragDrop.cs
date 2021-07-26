@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEditor.Animations;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
+
+    [SerializeField] RectTransform InventoryPanelSlider;
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
@@ -12,6 +15,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     // Event listener for beginning of drag
     public void OnBeginDrag(PointerEventData eventData) {
+        Animator anim = InventoryPanelSlider.GetComponent<Animator>();
+        anim.SetBool("ShowInventory", false);
         Debug.Log("You are now dragging the pointer!");
     }
 
