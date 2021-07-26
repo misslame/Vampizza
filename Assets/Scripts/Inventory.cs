@@ -6,19 +6,19 @@ public class Inventory : MonoBehaviour {
 
     // Unity Objects
     public GridLayoutGroup slotHolder;
-    public GameObject firstSlot;
+    public GameObject slotCopy;
 
     // Inventory
     Dictionary<string, Item> inventory = new Dictionary<string, Item>();
 
     // Start is called before the first frame update
     void Start() {
-
+        hideSlot(slotCopy);
         /* DEBUG: TESTING USE ONLY REMOVE AFTER IMPLEMENTATION OF GATHERING RESOURCES */
         AddItemToInventory(new Wheat(3), "res");
         AddItemToInventory(new Tomato(2), "res");
         AddItemToInventory(new Blood(69), "res");
-        AddItemToInventory(new Home(4.20), "stc");
+        // AddItemToInventory(new Home(4.20), "stc");
         AddItemToInventory(new TownHome(69.00), "stc");
         AddItemToInventory(new FarmPlot(123.123), "stc");
 
@@ -28,6 +28,18 @@ public class Inventory : MonoBehaviour {
 
     // Update is called once per frame
     void Update() { }
+
+    void hideSlot(GameObject slot){
+        // Hide component via set alpha to 0 and prevent receiving of input events
+        slot.GetComponent<CanvasGroup>().alpha = 0f;
+        slot.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+    void showSlot(GameObject slot){
+        // Show component via set alpha to 1 and allow receiving of input events
+        slot.GetComponent<CanvasGroup>().alpha = 1f;
+        slot.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
 
     void AddItemToInventory(Item i, string keyPrefix ) {
         
@@ -39,14 +51,16 @@ public class Inventory : MonoBehaviour {
         Debug.Log("populate Resources");
         
         Sprite newSprite;
-        GameObject newSlot = firstSlot;
+        GameObject newSlot;
 
         EmptyInventoryPanel();
 
         foreach (KeyValuePair<string, Item> entry in inventory) {
 
             if (entry.Key.Contains("res")) {
-                newSlot = Instantiate(firstSlot, transform);
+                newSlot = Instantiate(slotCopy, transform);
+                newSlot.GetComponent<DragDrop>().SlotContent = entry.Value;
+                showSlot(newSlot);
                 newSlot.transform.parent = slotHolder.transform;
 
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
@@ -57,8 +71,6 @@ public class Inventory : MonoBehaviour {
             }
         }
 
-        Destroy(firstSlot);
-        firstSlot = newSlot;
         
     }
 
@@ -66,7 +78,7 @@ public class Inventory : MonoBehaviour {
         Debug.Log("populate Structures");
         
         Sprite newSprite;
-        GameObject newSlot = firstSlot;
+        GameObject newSlot;
 
         EmptyInventoryPanel();
 
@@ -74,7 +86,9 @@ public class Inventory : MonoBehaviour {
         foreach (KeyValuePair<string, Item> entry in inventory) {
 
             if (entry.Key.Contains("stc")) {
-                newSlot = Instantiate(firstSlot, transform);
+                newSlot = Instantiate(slotCopy, transform);
+                newSlot.GetComponent<DragDrop>().SlotContent = entry.Value;
+                showSlot(newSlot);
                 newSlot.transform.parent = slotHolder.transform;
 
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
@@ -84,8 +98,6 @@ public class Inventory : MonoBehaviour {
             }
         }
 
-        Destroy(firstSlot);
-        firstSlot = newSlot;
         
         
     }
@@ -96,24 +108,20 @@ public class Inventory : MonoBehaviour {
 
         EmptyInventoryPanel();
 
-        GameObject newSlot = Instantiate(firstSlot, transform);
-        newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = " ";
-        Destroy(firstSlot);
-
-        firstSlot = newSlot;
-
+        // GameObject newSlot = Instantiate(slotCopy, transform);
+        // newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = " ";
     }
 
     void EmptyInventoryPanel() {
        
         int numberOfChildren = slotHolder.transform.childCount;
-        Debug.Log(numberOfChildren);
-        if (numberOfChildren > 1) {
-            for (int i = 1; i < numberOfChildren; i++) {
+        // Debug.Log(numberOfChildren);
+        if (numberOfChildren >= 1) {
+            for (int i = 0; i < numberOfChildren; i++) {
                 Destroy(slotHolder.transform.GetChild(i).gameObject);
             }
 
-            firstSlot = slotHolder.transform.GetChild(0).gameObject;
+            // slotCopy = slotHolder.transform.GetChild(0).gameObject;
         }
     }
 
