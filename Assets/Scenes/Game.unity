@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c131392cbc00a4fb4df2c5a838c48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryPanelSlider: {fileID: 9100000, guid: 32b1af5b30401c34db3aa2796d602d20, type: 2}
+  InventoryPanelSlider: {fileID: 603731182}
 --- !u!114 &1115053809
 MonoBehaviour:
   m_ObjectHideFlags: 0
