@@ -7,10 +7,12 @@ using UnityEditor.Animations;
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
     [SerializeField] RectTransform InventoryPanelSlider;
+    public Item SlotContent;
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
-        Debug.Log("You pressed the pointer down!");
+        Debug.Log(string.Format("You pressed the pointer down on <color=green>{0}</color>!\n" + 
+        "This is a <color=purple>{1}</color>", SlotContent, SlotContent.GetType().BaseType));
     }
 
     // Event listener for beginning of drag
