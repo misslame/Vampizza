@@ -1,6 +1,6 @@
 public class FarmPlot : Structure, Item {
 
-    public const int cost = 100;
+    public override int cost { get { return 100; } }
 
     public FarmPlot(double price) : base(price) { }
 

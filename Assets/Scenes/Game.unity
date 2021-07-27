@@ -65969,6 +65969,7 @@ MonoBehaviour:
   TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
+  Player: {fileID: 1805853877}
 --- !u!114 &1115053809
 MonoBehaviour:
   m_ObjectHideFlags: 0

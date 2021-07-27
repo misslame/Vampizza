@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
     public LevelBar levelBar;
     public LevelDisplay levelDisplay;
     public CitizenDisplay citizenDisplay;
-    public CurrencyDisplay currencyDisplay;
+    [SerializeField] public CurrencyDisplay currencyDisplay;
 
     //CUSTOM CONTRUCTOR
 

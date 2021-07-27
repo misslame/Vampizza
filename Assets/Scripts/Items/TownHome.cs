@@ -1,6 +1,6 @@
 public class TownHome : Structure, Item {
 
-    public const int cost = 200;
+    public override int cost { get { return 200; } }
 
     public TownHome(double price) : base(price) { }
 
