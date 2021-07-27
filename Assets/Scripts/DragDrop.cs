@@ -17,11 +17,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public Item SlotContent;
     Vector3Int LastDraggedOverCell;
     Tile SelectedTile;
+    bool shopMode = false;
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
         Debug.Log(string.Format("You pressed the pointer down on <color=green>{0}</color>!\n" + 
         "This is a <color=purple>{1}</color>", SlotContent, SlotContent.GetType().BaseType));
+        shopMode = InventoryPanelSlider.GetComponent<InventoryAndShopController>().toggleShopOrInventory.isOn;
+        Debug.Log(string.Format("Shop mode <color={0}>{1}</color>", shopMode?"green":"red", shopMode.ToString()));
     }
 
     // Event listener for beginning of drag
