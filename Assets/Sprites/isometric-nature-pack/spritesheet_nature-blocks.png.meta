@@ -1,7 +1,64 @@
 fileFormatVersion: 2
 guid: b79bc33679ef9f4438989b38475c0c71
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3162168394124735997
+    second: spritesheet_nature-blocks_0
+  - first:
+      213: -6402123906384003385
+    second: spritesheet_nature-blocks_1
+  - first:
+      213: 6480656482206208727
+    second: spritesheet_nature-blocks_2
+  - first:
+      213: -2255229635554764889
+    second: spritesheet_nature-blocks_3
+  - first:
+      213: 7548031394994469493
+    second: spritesheet_nature-blocks_4
+  - first:
+      213: 3260533832755346545
+    second: spritesheet_nature-blocks_5
+  - first:
+      213: -3185577229484971477
+    second: spritesheet_nature-blocks_6
+  - first:
+      213: -3967163127158287577
+    second: spritesheet_nature-blocks_7
+  - first:
+      213: -6833025860645277233
+    second: spritesheet_nature-blocks_8
+  - first:
+      213: -6682192932813152852
+    second: spritesheet_nature-blocks_9
+  - first:
+      213: -6784708314063240413
+    second: spritesheet_nature-blocks_10
+  - first:
+      213: -6874085258487056015
+    second: spritesheet_nature-blocks_11
+  - first:
+      213: -5293631891804070582
+    second: spritesheet_nature-blocks_12
+  - first:
+      213: 7574195739605410037
+    second: spritesheet_nature-blocks_13
+  - first:
+      213: -8585424847461702442
+    second: spritesheet_nature-blocks_14
+  - first:
+      213: 2268771657436839895
+    second: spritesheet_nature-blocks_15
+  - first:
+      213: -210866551962877471
+    second: spritesheet_nature-blocks_16
+  - first:
+      213: -5780330496427116879
+    second: spritesheet_nature-blocks_17
+  - first:
+      213: 2205484664708922218
+    second: spritesheet_nature-blocks_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +98,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,9 +132,420 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 11
+        width: 132
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a4a347998bd14d0800000000000000
+      internalID: -3162168394124735997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 8
+        width: 130
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cef1ff1a361727a0800000000000000
+      internalID: -6402123906384003385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 8
+        width: 136
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2db3d0cbaefe950800000000000000
+      internalID: 6480656482206208727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_3
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 14
+        width: 132
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a713dd5890d3b0e0800000000000000
+      internalID: -2255229635554764889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_4
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 10
+        width: 131
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a3424009effb860800000000000000
+      internalID: 7548031394994469493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_5
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 10
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c768fee3ebf3d20800000000000000
+      internalID: 3260533832755346545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_6
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 10
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2aa9ff336e8ac3d0800000000000000
+      internalID: -3185577229484971477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_7
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 10
+        width: 131
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723d3bf972ec1f8c0800000000000000
+      internalID: -3967163127158287577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_8
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 10
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc13e23ce273c21a0800000000000000
+      internalID: -6833025860645277233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_9
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 10
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caddb0f6ee41443a0800000000000000
+      internalID: -6682192932813152852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_10
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 3
+        width: 132
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3230f9b3cbfd7d1a0800000000000000
+      internalID: -6784708314063240413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_11
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 10
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179312cb0e75a90a0800000000000000
+      internalID: -6874085258487056015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_12
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 10
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dd65d57dd3986b0800000000000000
+      internalID: -5293631891804070582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_13
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 10
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0257635e2fc1960800000000000000
+      internalID: 7574195739605410037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_14
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 17
+        width: 128
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4ab39b6917ad880800000000000000
+      internalID: -8585424847461702442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_15
+      rect:
+        serializedVersion: 2
+        x: 2098
+        y: 12
+        width: 132
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df3ffd4dcb4c7f10800000000000000
+      internalID: 2268771657436839895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_16
+      rect:
+        serializedVersion: 2
+        x: 2237
+        y: 12
+        width: 130
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1cd3bfcf9d21df0800000000000000
+      internalID: -210866551962877471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_17
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 17
+        width: 130
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6ba1cf90428cfa0800000000000000
+      internalID: -5780330496427116879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_nature-blocks_18
+      rect:
+        serializedVersion: 2
+        x: 2512
+        y: 12
+        width: 132
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bfb8d0e947b9e10800000000000000
+      internalID: 2205484664708922218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
