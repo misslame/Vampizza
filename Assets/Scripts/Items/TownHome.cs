@@ -1,5 +1,7 @@
 public class TownHome : Structure, Item {
 
+    public const int cost = 200;
+
     public TownHome(double price) : base(price) { }
 
     public string GetDescription() {
