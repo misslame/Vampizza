@@ -29,12 +29,14 @@ public class Inventory : MonoBehaviour {
     // Update is called once per frame
     void Update() { }
 
+    // Use to hide slotCopy, which will persist
     void hideSlot(GameObject slot){
         // Hide component via set alpha to 0 and prevent receiving of input events
         slot.GetComponent<CanvasGroup>().alpha = 0f;
         slot.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
+    // Use to show newly cloned slots derived from slotCopy, which will eventually be deleted
     void showSlot(GameObject slot){
         // Show component via set alpha to 1 and allow receiving of input events
         slot.GetComponent<CanvasGroup>().alpha = 1f;
@@ -86,14 +88,17 @@ public class Inventory : MonoBehaviour {
         foreach (KeyValuePair<string, Item> entry in inventory) {
 
             if (entry.Key.Contains("stc")) {
+                //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
                 newSlot = Instantiate(slotCopy, transform);
                 newSlot.GetComponent<DragDrop>().SlotContent = entry.Value;
+
+                // Show slot, then update transform
                 showSlot(newSlot);
                 newSlot.transform.parent = slotHolder.transform;
 
+                // Do sprite stuff
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = " ";
             }
         }
@@ -117,11 +122,10 @@ public class Inventory : MonoBehaviour {
         int numberOfChildren = slotHolder.transform.childCount;
         // Debug.Log(numberOfChildren);
         if (numberOfChildren >= 1) {
+            // Delete all children of SlotHolder
             for (int i = 0; i < numberOfChildren; i++) {
                 Destroy(slotHolder.transform.GetChild(i).gameObject);
             }
-
-            // slotCopy = slotHolder.transform.GetChild(0).gameObject;
         }
     }
 
