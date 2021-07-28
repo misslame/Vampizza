@@ -12,33 +12,27 @@ public class Player : MonoBehaviour {
 
     //PLAYER ATTRIBUTES
     public float exp {
-        get { return data.exp; }
-        set { data.exp = value; }
+        get;set;
     }
 
     public ulong level {
-        get { return data.level; }
-        set { data.level = value; }
+        get;set;
     }
 
     public long currency {
-        get { return data.currency; }
-        set { data.currency = value; }
+        get;set;
     }
 
     public string playerName {
-        get { return data.playerName; }
-        set { data.playerName = value; }
+        get;set;
     }
 
     public ulong citizen {
-        get { return data.citizen; }
-        set { data.citizen = value; }
+        get;set;
     }
 
     public ulong blood {
-        get { return data.blood; }
-        set { data.blood = value; }
+        get;set;
     }
 
     //UI ELEMENT REFERENCES
