@@ -53,7 +53,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         Debug.Log("You are now dragging the pointer!");
 
 
-        if (!shopMode){
+        if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
             // Get animator component, then hide slider
             Animator anim = InventoryPanelSlider.GetComponent<Animator>();
             anim.SetBool("ShowInventory", false);
@@ -107,7 +107,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     // Event listener for end of drag
     public void OnEndDrag(PointerEventData eventData) {
         
-        if (!shopMode){
+        if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
             Inventory inventory = InventoryGameObj.GetComponent<Inventory>();
             // Using lastest cell coordinate that was dragged over in the preview grid, delete the
             // preview tile and update the structure tilegrid.
