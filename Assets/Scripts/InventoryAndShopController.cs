@@ -29,11 +29,11 @@ public class InventoryAndShopController : MonoBehaviour {
 
     void OnSwitch(bool on) {
         if (on) {
-            Debug.Log("Toggled Shop");
+            // Debug.Log("Toggled Shop");
             uiHandleRectTransform.anchoredPosition = handlePosition * -1;
             panelTitle.text = "Shop";
         } else {
-            Debug.Log("Toggled Inventory");
+            // Debug.Log("Toggled Inventory");
             uiHandleRectTransform.anchoredPosition = handlePosition;
             panelTitle.text = "Inventory";
         }

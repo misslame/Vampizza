@@ -7,9 +7,24 @@ public class Inventory : MonoBehaviour {
     // Unity Objects
     public GridLayoutGroup slotHolder;
     public GameObject slotCopy;
+    [SerializeField] GameObject player;
 
     // Inventory
     Dictionary<string, Item> inventory = new Dictionary<string, Item>();
+
+    
+    public Dictionary<string, int> structureQuantities = new Dictionary<string, int>
+    {
+        {"TownHome", 2},
+        {"FarmPlot", 3}
+    };
+
+    public Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
+    {
+        {"Blood", 0},
+        {"Tomato", 0},
+        {"Wheat", 0}
+    };
 
     // Start is called before the first frame update
     void Start() {
@@ -84,10 +99,15 @@ public class Inventory : MonoBehaviour {
 
         EmptyInventoryPanel();
 
-        
+        bool shopMode = this.GetComponentInParent<InventoryAndShopController>().toggleShopOrInventory.isOn;
+        Debug.Log(shopMode);
         foreach (KeyValuePair<string, Item> entry in inventory) {
 
             if (entry.Key.Contains("stc")) {
+                if (structureQuantities[entry.Value.GetType().ToString()] == 0 && !shopMode){
+                    continue;
+                }
+
                 //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
                 newSlot = Instantiate(slotCopy, transform);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
@@ -99,12 +119,21 @@ public class Inventory : MonoBehaviour {
                 // Do sprite stuff
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-                newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = " ";
+                
+                // int quantity = -1;
+                // switch(entry.Value.GetType().ToString()){
+                //     case "TownHome":
+                //         quantity = player.GetComponent<Player>().townhome;
+                //         break;
+                //     case "FarmPlot":
+                //         quantity = player.GetComponent<Player>().farmplot;
+                //         break;
+                //     default:
+                //         break;
+                // }
+                newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + structureQuantities[entry.Value.GetType().ToString()];
             }
         }
-
-        
-        
     }
 
     public void PopulateDecorTab() {

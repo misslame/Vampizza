@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEditor.Animations;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
@@ -15,10 +15,16 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     [SerializeField] Tile HomeTile;
     [SerializeField] Tile FarmPlotTile;
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject InventoryGameObj;
+    [SerializeField] GameObject TextGameObj;
     public Item SlotContent;
     Vector3Int LastDraggedOverCell;
     Tile SelectedTile;
     bool shopMode = false;
+
+    public void Start(){
+        
+    }
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
@@ -34,6 +40,8 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
                 player.currency -= ((Structure)SlotContent).cost;
+                InventoryGameObj.GetComponent<Inventory>().structureQuantities[SlotContent.GetType().ToString()]++;
+                InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
                 Debug.Log(player.currency);
                 player.currencyDisplay.SetCurrencyText(player.currency);
             }
@@ -100,10 +108,14 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public void OnEndDrag(PointerEventData eventData) {
         
         if (!shopMode){
+            Inventory inventory = InventoryGameObj.GetComponent<Inventory>();
             // Using lastest cell coordinate that was dragged over in the preview grid, delete the
             // preview tile and update the structure tilegrid.
             TilemapPreview.SetTile(LastDraggedOverCell, null);
             TilemapStructures.SetTile(LastDraggedOverCell, SelectedTile);
+            inventory.structureQuantities[SlotContent.GetType().ToString()]--;
+            // this.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + inventory.structureQuantities[SlotContent.GetType().ToString()];
+            inventory.PopulateStructuresTab();
         }
         Debug.Log("You have stopped dragging the pointer!");
     }

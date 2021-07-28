@@ -65039,6 +65039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551384816}
   - component: {fileID: 551384817}
+  - component: {fileID: 551384818}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -65114,6 +65115,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &551384818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551384815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8146f326a47489458091fc0a8189a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryGameObj: {fileID: 1461637378}
 --- !u!1 &603731181
 GameObject:
   m_ObjectHideFlags: 0
@@ -65970,6 +65984,8 @@ MonoBehaviour:
   HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
   Player: {fileID: 1805853877}
+  InventoryGameObj: {fileID: 1461637378}
+  TextGameObj: {fileID: 1168116890}
 --- !u!114 &1115053809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66637,6 +66653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotHolder: {fileID: 696518238}
   slotCopy: {fileID: 1115053806}
+  player: {fileID: 1805853877}
 --- !u!1 &1466914927
 GameObject:
   m_ObjectHideFlags: 0
