@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEditor.Animations;
 using UnityEngine.Tilemaps;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
+public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
     [SerializeField] RectTransform InventoryPanelSlider;
     [SerializeField] Grid TileGrids;
@@ -28,24 +28,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Debug.Log(string.Format("Shop mode <color={0}>{1}</color>", shopMode?"green":"red", shopMode.ToString()));
         Player player = Player.GetComponent<Player>();
 
-        if (shopMode){
-            // this is gross
-            switch(SlotContent.GetType().ToString()){
-                case "TownHome":
-                    // redundant code
-                    Debug.Log(((Structure)SlotContent).cost);
-                    player.currency = player.currency - ((Structure)SlotContent).cost;
-                    Debug.Log(player.currency);
-                    break;
-                case "FarmPlot":
-                    Debug.Log(((Structure)SlotContent).cost);
-                    player.currency = player.currency - ((Structure)SlotContent).cost;
-                    Debug.Log(player.currency);
-                    break;
-                default:
-                    break;
+        if (shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
+            long newCurrency = player.currency - ((Structure)SlotContent).cost;
+            if (newCurrency < 0){
+                Debug.Log("<color=red>Not enough currency to buy that!</color>");
+            } else {
+                player.currency -= ((Structure)SlotContent).cost;
+                Debug.Log(player.currency);
+                player.currencyDisplay.SetCurrencyText(player.currency);
             }
-            player.currencyDisplay.SetCurrencyText(player.currency);
         }
     }
 

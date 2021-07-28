@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
     void Start() {
         exp = 0f;
         level = 1;
-        currency = 1000000;
+        currency = 1000;
         citizen = 100;
         blood = 0;
         playerName = "Chuck";

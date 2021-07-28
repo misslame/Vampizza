@@ -60,7 +60,8 @@ public class Inventory : MonoBehaviour {
 
             if (entry.Key.Contains("res")) {
                 newSlot = Instantiate(slotCopy, transform);
-                newSlot.GetComponent<DragDrop>().SlotContent = entry.Value;
+                Debug.Log(entry.Value);
+                newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
                 showSlot(newSlot);
                 newSlot.transform.parent = slotHolder.transform;
 
@@ -89,7 +90,7 @@ public class Inventory : MonoBehaviour {
             if (entry.Key.Contains("stc")) {
                 //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
                 newSlot = Instantiate(slotCopy, transform);
-                newSlot.GetComponent<DragDrop>().SlotContent = entry.Value;
+                newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
 
                 // Show slot, then update transform
                 showSlot(newSlot);
