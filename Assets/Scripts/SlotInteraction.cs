@@ -22,9 +22,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     Tile SelectedTile;
     bool shopMode = false;
 
-    public void Start(){
-        
-    }
+    public void Start(){ }
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
