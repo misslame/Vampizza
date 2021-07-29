@@ -16,7 +16,7 @@ public class CurrencyDisplay : MonoBehaviour {
     }
 
     // Sets the display to the current currency amount. 
-    public void SetCurrencyText(long currency) {
+    public void SetCurrencyText(double currency) {
         currencyText.text = currency.ToString();
     }
 }

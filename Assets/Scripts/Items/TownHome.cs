@@ -1,7 +1,5 @@
 public class TownHome : Structure, Item {
 
-    public override int cost { get { return 200; } }
-
     public TownHome(double price) : base(price) { }
 
     public string GetDescription() {

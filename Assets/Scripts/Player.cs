@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         get;set;
     }
 
-    public long currency {
+    public double currency {
         get;set;
     }
 

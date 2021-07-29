@@ -35,8 +35,8 @@ public class Inventory : MonoBehaviour {
         AddItemToInventory(new Wheat(3), "res");
         AddItemToInventory(new Tomato(2), "res");
         AddItemToInventory(new Blood(69), "res");
-        AddItemToInventory(new TownHome(69.00), "stc");
-        AddItemToInventory(new FarmPlot(123.123), "stc");
+        AddItemToInventory(new TownHome(200), "stc");
+        AddItemToInventory(new FarmPlot(100.00), "stc");
 
         PopulateResourcesTab();
 
