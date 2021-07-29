@@ -16,7 +16,6 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     [SerializeField] Tile FarmPlotTile;
     [SerializeField] GameObject Player;
     [SerializeField] GameObject InventoryGameObj;
-    [SerializeField] GameObject TextGameObj;
     public Item SlotContent;
     Vector3Int LastDraggedOverCell;
     Tile SelectedTile;
@@ -72,7 +71,23 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         
         if (!shopMode){
             // Convert cursor screen pos. to world pos., then convert + save world pos. into grid cell coord
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, Camera.main.nearClipPlane));
+            double maxWidth = Camera.main.pixelRect.width;
+            double maxHeight = Camera.main.pixelRect.height;
+            double cursorX = eventData.position.x;
+            double cursorY = eventData.position.y;
+            if (cursorX > maxWidth * 0.9){
+                cursorX = maxWidth * 0.9;
+            }
+            if (cursorX < maxWidth - maxWidth * 0.95){
+                cursorX = maxWidth - maxWidth * 0.95;
+            }
+            if (cursorY > maxHeight * 0.9){
+                cursorY = maxHeight * 0.85;
+            }
+            if (cursorY < maxHeight - maxHeight * 0.95){
+                cursorY = maxHeight - maxHeight * 0.95;
+            }
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(new Vector3((float)cursorX, (float)cursorY, Camera.main.nearClipPlane));
             Vector3 noZ = new Vector3(worldPoint.x, worldPoint.y);
             Vector3Int currentCell = TileGrids.WorldToCell(noZ);
 
