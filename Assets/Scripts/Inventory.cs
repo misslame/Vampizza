@@ -167,6 +167,8 @@ public class Inventory : MonoBehaviour {
                 showSlot(newSlot);
                 newSlot.transform.parent = slotHolder.transform;
 
+                slotHolder.cellSize = new Vector2(80f, 80f);
+
                 // Do sprite stuff
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
