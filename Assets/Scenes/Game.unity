@@ -141094,7 +141094,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 1ae6b7e977ccd9f4c94504bdad06a6d5, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 8
@@ -142755,7 +142755,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 1ae6b7e977ccd9f4c94504bdad06a6d5, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 8
@@ -144337,7 +144337,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 1ae6b7e977ccd9f4c94504bdad06a6d5, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 8
@@ -144845,8 +144845,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900339824}
   m_HandleRect: {fileID: 1900339823}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.5954661
+  m_Value: 1.0000001
+  m_Size: 0.595466
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
