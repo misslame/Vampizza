@@ -84,6 +84,7 @@ public class Inventory : MonoBehaviour {
 
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
+                newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().preserveAspect = true;
 
                 Resource cast = (Resource)entry.Value;
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + cast.GetQuantity();
@@ -101,7 +102,7 @@ public class Inventory : MonoBehaviour {
         if (shopMode) {
             PopulateStructuresTabToShop(slotShopCopy);
         } else {
-            PopulateStructuresTab(slotInventoryCopy);
+            PopulateStructuresTabToInventory(slotInventoryCopy);
         }
         
     }
@@ -146,7 +147,7 @@ public class Inventory : MonoBehaviour {
 
     }
 
-    private void PopulateStructuresTab(GameObject slot) {
+    private void PopulateStructuresTabToInventory(GameObject slot) {
         Debug.Log("populate Structures: Inventory");
 
         Sprite newSprite;
@@ -172,18 +173,6 @@ public class Inventory : MonoBehaviour {
                 // Do sprite stuff
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-
-                // int quantity = -1;
-                // switch(entry.Value.GetType().ToString()){
-                //     case "TownHome":
-                //         quantity = player.GetComponent<Player>().townhome;
-                //         break;
-                //     case "FarmPlot":
-                //         quantity = player.GetComponent<Player>().farmplot;
-                //         break;
-                //     default:
-                //         break;
-                // }
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + structureQuantities[entry.Value.GetType().ToString()];
             }
         }
