@@ -21,9 +21,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     Tile SelectedTile;
     bool shopMode = false;
 
-    public void Start(){
-        
-    }
+    public void Start(){ }
 
     // Event listener for mouse click down
     public void OnPointerDown(PointerEventData eventData) {
@@ -34,11 +32,11 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         Player player = Player.GetComponent<Player>();
 
         if (shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
-            long newCurrency = player.currency - ((Structure)SlotContent).cost;
+            double newCurrency = player.currency - ((Structure)SlotContent).GetPrice();
             if (newCurrency < 0){
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
-                player.currency -= ((Structure)SlotContent).cost;
+                player.currency -= ((Structure)SlotContent).GetPrice();
                 InventoryGameObj.GetComponent<Inventory>().structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
                 Debug.Log(player.currency);

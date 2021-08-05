@@ -6,7 +6,8 @@ public class Inventory : MonoBehaviour {
 
     // Unity Objects
     public GridLayoutGroup slotHolder;
-    public GameObject slotCopy;
+    public GameObject slotInventoryCopy;
+    public GameObject slotShopCopy;
     [SerializeField] GameObject player;
 
     // Inventory
@@ -28,13 +29,14 @@ public class Inventory : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        hideSlot(slotCopy);
+        hideSlot(slotInventoryCopy);
+        hideSlot(slotShopCopy);
         /* DEBUG: TESTING USE ONLY REMOVE AFTER IMPLEMENTATION OF GATHERING RESOURCES */
         AddItemToInventory(new Wheat(3), "res");
         AddItemToInventory(new Tomato(2), "res");
         AddItemToInventory(new Blood(69), "res");
-        AddItemToInventory(new TownHome(69.00), "stc");
-        AddItemToInventory(new FarmPlot(123.123), "stc");
+        AddItemToInventory(new TownHome(200), "stc");
+        AddItemToInventory(new FarmPlot(100.00), "stc");
 
         PopulateResourcesTab();
 
@@ -74,7 +76,7 @@ public class Inventory : MonoBehaviour {
         foreach (KeyValuePair<string, Item> entry in inventory) {
 
             if (entry.Key.Contains("res")) {
-                newSlot = Instantiate(slotCopy, transform);
+                newSlot = Instantiate(slotInventoryCopy, transform);
                 Debug.Log(entry.Value);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
                 showSlot(newSlot);
@@ -82,6 +84,7 @@ public class Inventory : MonoBehaviour {
 
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
+                newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().preserveAspect = true;
 
                 Resource cast = (Resource)entry.Value;
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + cast.GetQuantity();
@@ -92,24 +95,28 @@ public class Inventory : MonoBehaviour {
     }
 
     public void PopulateStructuresTab() {
-        Debug.Log("populate Structures");
-        
-        Sprite newSprite;
-        GameObject newSlot;
-
         EmptyInventoryPanel();
 
         bool shopMode = this.GetComponentInParent<InventoryAndShopController>().toggleShopOrInventory.isOn;
-        Debug.Log(shopMode);
+
+        if (shopMode) {
+            PopulateStructuresTabToShop(slotShopCopy);
+        } else {
+            PopulateStructuresTabToInventory(slotInventoryCopy);
+        }
+        
+    }
+
+    private void PopulateStructuresTabToShop(GameObject slot) {
+        Debug.Log("populate Structures: Shop");
+
+        Sprite newSprite;
+        GameObject newSlot;
+
         foreach (KeyValuePair<string, Item> entry in inventory) {
-
-            if (entry.Key.Contains("stc")) {
-                if (structureQuantities[entry.Value.GetType().ToString()] == 0 && !shopMode){
-                    continue;
-                }
-
+            if(entry.Key.Contains("stc")) {
                 //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
-                newSlot = Instantiate(slotCopy, transform);
+                newSlot = Instantiate(slot, transform);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
 
                 // Show slot, then update transform
@@ -119,18 +126,53 @@ public class Inventory : MonoBehaviour {
                 // Do sprite stuff
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-                
-                // int quantity = -1;
-                // switch(entry.Value.GetType().ToString()){
-                //     case "TownHome":
-                //         quantity = player.GetComponent<Player>().townhome;
-                //         break;
-                //     case "FarmPlot":
-                //         quantity = player.GetComponent<Player>().farmplot;
-                //         break;
-                //     default:
-                //         break;
-                // }
+
+                slotHolder.cellSize = new Vector2(250f, 80f);
+
+                newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().text = ((Structure)entry.Value).GetPrice().ToString();
+                newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = structureQuantities[entry.Value.GetType().ToString()].ToString();
+
+                // Fancy Color changing for the text for feedback. 
+                if(player.GetComponent<Player>().currency >= ((Structure)entry.Value).GetPrice()) {
+                    newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.green; // If player can afford, make text color green. 
+                } else {
+                    newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If player cannot afford, make text color red. 
+                }
+
+                if(structureQuantities[entry.Value.GetType().ToString()] <= 0) {
+                    newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If they have 0 of this item in their inventory. 
+                }
+            }
+        }
+
+    }
+
+    private void PopulateStructuresTabToInventory(GameObject slot) {
+        Debug.Log("populate Structures: Inventory");
+
+        Sprite newSprite;
+        GameObject newSlot;
+
+        foreach (KeyValuePair<string, Item> entry in inventory) {
+
+            if (entry.Key.Contains("stc")) {
+                if (structureQuantities[entry.Value.GetType().ToString()] == 0) {
+                    continue;
+                }
+
+                //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
+                newSlot = Instantiate(slot, transform);
+                newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
+
+                // Show slot, then update transform
+                showSlot(newSlot);
+                newSlot.transform.parent = slotHolder.transform;
+
+                slotHolder.cellSize = new Vector2(80f, 80f);
+
+                // Do sprite stuff
+                newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
+                newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + structureQuantities[entry.Value.GetType().ToString()];
             }
         }

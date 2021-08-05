@@ -34,9 +34,6 @@ public abstract class Resource {
 
 public abstract class Structure {
 
-    // ew
-    public abstract int cost {get;}
-
     // initial cost is a constant, is this really needed?
     private double price;
 

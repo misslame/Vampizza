@@ -1,7 +1,4 @@
 public class FarmPlot : Structure, Item {
-
-    public override int cost { get { return 100; } }
-
     public FarmPlot(double price) : base(price) { }
 
     public string GetDescription() {
