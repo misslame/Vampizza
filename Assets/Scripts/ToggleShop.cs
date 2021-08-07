@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class ToggleShop : MonoBehaviour
 {
     [SerializeField] GameObject InventoryGameObj;
@@ -17,7 +15,6 @@ public class ToggleShop : MonoBehaviour
     }
     void ToggleValueChanged(Toggle change)
     {
-        Debug.Log("toggled");
         InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
     }
 }
