@@ -36,7 +36,10 @@ public class StructureModeHandler : MonoBehaviour
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 noZ = new Vector3(pos.x, pos.y);
                 Vector3Int currentCell = TilemapStructures.WorldToCell(noZ);
-                TilemapStructures.GetTile(currentCell);
+                Debug.Log(TilemapStructures.GetTile(currentCell));
+                TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
+                GameGrid.transform.Find("TilemapStructures").GetComponent<Tilemap>().SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
+                Debug.Log(TilemapStructures.GetColor(currentCell));
                 break;
             default:
                 break;
