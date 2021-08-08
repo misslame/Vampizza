@@ -42,7 +42,7 @@ public class StructureModeHandler : MonoBehaviour
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
         if (!currentCell.Equals(lastCell)){
-            Debug.Log(TilemapStructures.GetTile(currentCell));
+            // Debug.Log(TilemapStructures.GetTile(currentCell));
             switch(mode){
                 case "Select":
                     TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
