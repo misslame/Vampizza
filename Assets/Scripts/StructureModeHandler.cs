@@ -14,35 +14,55 @@ public class StructureModeHandler : MonoBehaviour
         {"Delete", null}
     };
 
-    public string mode = "";
+    public string mode = "Select";
     private Tilemap TilemapStructures;
-
-    void UpdateMode(string mode){
-        this.mode = mode; 
-    }
+    Vector3Int currentCell;
+    Vector3Int lastCell;
 
     // Start is called before the first frame update
     void Start()
     {
         modes["Delete"] = DeleteModeToggle.GetComponent<Toggle>();
         TilemapStructures = GameGrid.transform.Find("TilemapStructures").GetComponent<Tilemap>();
+
+        // eventually do this iteratively with each mode
+        modes["Delete"].onValueChanged.AddListener(delegate(bool isOn){
+            if (isOn){
+                mode = "Delete";
+            } else {
+                mode = "Select";
+            }
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(mode){
-            case "Delete":
-                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 noZ = new Vector3(pos.x, pos.y);
-                Vector3Int currentCell = TilemapStructures.WorldToCell(noZ);
-                Debug.Log(TilemapStructures.GetTile(currentCell));
-                TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
-                GameGrid.transform.Find("TilemapStructures").GetComponent<Tilemap>().SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
-                Debug.Log(TilemapStructures.GetColor(currentCell));
-                break;
-            default:
-                break;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 noZ = new Vector3(pos.x, pos.y);
+        currentCell = TilemapStructures.WorldToCell(noZ);
+        if (!currentCell.Equals(lastCell)){
+            Debug.Log(TilemapStructures.GetTile(currentCell));
+            switch(mode){
+                case "Select":
+                    TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
+                    TilemapStructures.SetColor(currentCell, new Color(0.8f, 0.8f, 0.8f, 1f));
+                    TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
+                    break;
+                case "Delete":
+                    TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
+                    TilemapStructures.SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
+                    TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
+                    if (Input.GetMouseButtonDown(0)){
+                        Debug.Log(TilemapStructures.GetTile(currentCell));
+                    }
+                    break;
+                default:
+                    break;
+            }
+            lastCell = currentCell;
         }
     }
+
+
 }
