@@ -141279,7 +141279,7 @@ GameObject:
   - component: {fileID: 384011063}
   m_Layer: 0
   m_Name: TilemapStructures
-  m_TagString: Untagged
+  m_TagString: Structures
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142645,7 +142645,6 @@ GameObject:
   m_Component:
   - component: {fileID: 946896638}
   - component: {fileID: 946896637}
-  - component: {fileID: 946896639}
   m_Layer: 0
   m_Name: StructureManager
   m_TagString: Untagged
@@ -142682,22 +142681,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &946896639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946896636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b809d458826994b9a7d4f686279008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TilemapStructures: {fileID: 384011064}
-  TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
-  HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
-  FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
 --- !u!1 &953002243
 GameObject:
   m_ObjectHideFlags: 0
@@ -143687,7 +143670,7 @@ GameObject:
   - component: {fileID: 1461637383}
   m_Layer: 5
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
