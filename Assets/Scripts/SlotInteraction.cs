@@ -124,9 +124,10 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             // Using lastest cell coordinate that was dragged over in the preview grid, delete the
             // preview tile and update the structure tilegrid.
             TilemapPreview.SetTile(LastDraggedOverCell, null);
-            TilemapStructures.SetTile(LastDraggedOverCell, SelectedTile);
-            inventory.structureQuantities[SlotContent.GetType().ToString()]--;
-            // this.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + inventory.structureQuantities[SlotContent.GetType().ToString()];
+
+            // Use the StructureTileHandler to create a new structure
+            StructureTileHandler.CreateStructure(LastDraggedOverCell, (Structure)SlotContent);            
+            
             inventory.PopulateStructuresTab();
         }
         Debug.Log("You have stopped dragging the pointer!");
