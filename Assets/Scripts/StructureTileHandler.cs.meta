@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b3b809d458826994b9a7d4f686279008
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - TilemapStructures: {instanceID: 0}
+  - TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
+  - HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
+  - FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
