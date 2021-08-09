@@ -50,6 +50,9 @@ public class InventoryAndShopController : MonoBehaviour {
             if (animator != null) {
                 bool isOpen = animator.GetBool("ShowInventory");
                 animator.SetBool("ShowInventory", !isOpen);
+                if (inventory.currentTab == "Structures" && !isOpen){
+                    inventory.PopulateStructuresTab();
+                }
             }
         }
     }
