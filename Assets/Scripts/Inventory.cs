@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour {
 
     // Inventory
     Dictionary<string, Item> inventory = new Dictionary<string, Item>();
+    public string currentTab;
 
     
     public Dictionary<string, int> structureQuantities = new Dictionary<string, int>
@@ -66,6 +67,7 @@ public class Inventory : MonoBehaviour {
 
 
     public void PopulateResourcesTab() {
+        currentTab = "Resources";
         Debug.Log("populate Resources");
         
         Sprite newSprite;
@@ -95,6 +97,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public void PopulateStructuresTab() {
+        currentTab = "Structures";
         EmptyInventoryPanel();
 
         bool shopMode = this.GetComponentInParent<InventoryAndShopController>().toggleShopOrInventory.isOn;
