@@ -38,9 +38,15 @@ public class StructureModeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool click0 = Input.GetMouseButtonDown(0);
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
+        if (click0 && mode == "Delete"){
+            StructureTileHandler.PutAwayStructure(currentCell);
+        }
+
+        // handle color highlighting
         if (!currentCell.Equals(lastCell)){
             // Debug.Log(TilemapStructures.GetTile(currentCell));
             switch(mode){
@@ -53,9 +59,6 @@ public class StructureModeHandler : MonoBehaviour
                     TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
                     TilemapStructures.SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
                     TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
-                    if (Input.GetMouseButtonDown(0)){
-                        Debug.Log(TilemapStructures.GetTile(currentCell));
-                    }
                     break;
                 default:
                     break;

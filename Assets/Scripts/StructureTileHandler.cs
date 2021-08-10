@@ -13,8 +13,6 @@ public class StructureTileHandler : MonoBehaviour
 
     private static Dictionary<Vector3Int, StructureData> StructureData = new Dictionary<Vector3Int,StructureData>();
     private static Dictionary<string, Tile> TileDictionary;
-    private static Inventory PlayerInventory;
-
     void Start(){
         TilemapStructures = GameObject.FindWithTag("Structures").GetComponent<Tilemap>();
         TileDictionary = new Dictionary<string, Tile>()
@@ -24,7 +22,6 @@ public class StructureTileHandler : MonoBehaviour
             {"FarmPlot", FarmPlotTile},
             {"Invalid", InvalidTile}
         };
-        PlayerInventory = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
     public static void CreateStructure(Vector3Int coord, Structure structure){
@@ -35,17 +32,48 @@ public class StructureTileHandler : MonoBehaviour
             TilemapStructures.SetTile(coord, TileDictionary["Invalid"]);
             return;
         }
-        PlayerInventory.structureQuantities[structure.GetType().ToString()]--;
+        Inventory.structureQuantities[structure.GetType().ToString()]--;
         TilemapStructures.SetTile(coord, TileDictionary[structureString]);
         StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
         
         // debug only xD hahaha lololol!11!!!!!!!!!1111 :3 💯💯💯💯
         foreach (KeyValuePair<Vector3Int,StructureData> item in StructureData){
-            Debug.Log(item);
+            Debug.Log(GetStructureData(new Vector3Int(-500, 0, 0)));
         }
     }
 
+    public delegate void PutAwayStructureDelegate();
+    public static bool PutAwayStructure(Vector3Int coord, PutAwayStructureDelegate d){
+        Debug.Log(coord);
+        StructureData data = GetStructureData(coord);
+        if (data == null){
+            return false;
+        }
+        Inventory.structureQuantities[data.structure.GetType().ToString()]++;
+        TilemapStructures.SetTile(coord, null);
+        StructureData.Remove(coord);
+        d();
+        return true;
+    }
+
     public static bool PutAwayStructure(Vector3Int coord){
-        return false;
+        Debug.Log(coord);
+        StructureData data = GetStructureData(coord);
+        if (data == null){
+            return false;
+        }
+        Inventory.structureQuantities[data.structure.GetType().ToString()]++;
+        TilemapStructures.SetTile(coord, null);
+        StructureData.Remove(coord);
+        return true;
+    }
+
+    public static StructureData GetStructureData(Vector3Int coord){
+        try {
+            return StructureData[coord];
+        }
+        catch(System.Exception e){
+            return null;
+        }
     }
 }
