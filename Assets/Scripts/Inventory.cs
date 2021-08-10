@@ -15,13 +15,13 @@ public class Inventory : MonoBehaviour {
     public string currentTab;
 
     
-    public Dictionary<string, int> structureQuantities = new Dictionary<string, int>
+    public static Dictionary<string, int> structureQuantities = new Dictionary<string, int>
     {
         {"TownHome", 2},
         {"FarmPlot", 3}
     };
 
-    public Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
+    public static Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
     {
         {"Blood", 0},
         {"Tomato", 0},
