@@ -25,6 +25,9 @@ public class StructureTileHandler : MonoBehaviour
     }
 
     public static void CreateStructure(Vector3Int coord, Structure structure){
+        if (GetStructureData(coord) != null){
+            PutAwayStructure(coord);
+        }
         string structureString = structure.GetType().ToString();
         Debug.Log(structureString);
         if (!TileDictionary.ContainsKey(structure.GetType().ToString())){
