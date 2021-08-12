@@ -31,15 +31,15 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         Player player = Player.GetComponent<Player>();
 
         if (shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
-            double newCurrency = player.currency - ((Structure)SlotContent).GetPrice();
+            double newCurrency = player.CurrentCurrency - ((Structure)SlotContent).GetPrice();
             if (newCurrency < 0){
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
-                player.currency -= ((Structure)SlotContent).GetPrice();
+                player.SubtractCurrency(((Structure)SlotContent).GetPrice());
                 Inventory.structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
-                Debug.Log(player.currency);
-                player.currencyDisplay.SetCurrencyText(player.currency);
+                Debug.Log(player.CurrentCurrency);
+                player.currencyDisplay.SetCurrencyText(player.CurrentCurrency);
             }
         }
     }
