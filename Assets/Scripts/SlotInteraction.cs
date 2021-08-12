@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -13,7 +11,6 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     [SerializeField] Tile TownHomeTile;
     [SerializeField] Tile HomeTile;
     [SerializeField] Tile FarmPlotTile;
-    [SerializeField] GameObject Player;
     [SerializeField] GameObject InventoryGameObj;
     public Item SlotContent;
     Vector3Int LastDraggedOverCell;
@@ -28,18 +25,17 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         "This is a <color=purple>{1}</color>", SlotContent, SlotContent.GetType().BaseType));
         shopMode = InventoryPanelSlider.GetComponent<InventoryAndShopController>().toggleShopOrInventory.isOn;
         Debug.Log(string.Format("Shop mode <color={0}>{1}</color>", shopMode?"green":"red", shopMode.ToString()));
-        Player player = Player.GetComponent<Player>();
 
         if (shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
-            double newCurrency = player.CurrentCurrency - ((Structure)SlotContent).GetPrice();
+            double newCurrency = Player.Instance.CurrentCurrency - ((Structure)SlotContent).GetPrice();
             if (newCurrency < 0){
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
-                player.SubtractCurrency(((Structure)SlotContent).GetPrice());
+                Player.Instance.SubtractCurrency(((Structure)SlotContent).GetPrice());
                 Inventory.structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
-                Debug.Log(player.CurrentCurrency);
-                player.currencyDisplay.SetCurrencyText(player.CurrentCurrency);
+                Debug.Log(Player.Instance.CurrentCurrency);
+                Player.Instance.currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
             }
         }
     }
