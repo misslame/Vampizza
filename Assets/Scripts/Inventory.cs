@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour {
     public GridLayoutGroup slotHolder;
     public GameObject slotInventoryCopy;
     public GameObject slotShopCopy;
-    [SerializeField] GameObject player;
 
     // Inventory
     Dictionary<string, Item> inventory = new Dictionary<string, Item>();
@@ -136,7 +135,7 @@ public class Inventory : MonoBehaviour {
                 newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = structureQuantities[entry.Value.GetType().ToString()].ToString();
 
                 // Fancy Color changing for the text for feedback. 
-                if(player.GetComponent<Player>().CurrentCurrency >= ((Structure)entry.Value).GetPrice()) {
+                if(Player.Instance.CurrentCurrency >= ((Structure)entry.Value).GetPrice()) {
                     newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.green; // If player can afford, make text color green. 
                 } else {
                     newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If player cannot afford, make text color red. 
