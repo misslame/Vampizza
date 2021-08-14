@@ -11,8 +11,22 @@ public class StructureTileManager : MonoBehaviour
     [SerializeField] Tile FarmPlotTile;
     [SerializeField] Tile InvalidTile;
 
-    private static Dictionary<Vector3Int, StructureData> StructureData = new Dictionary<Vector3Int,StructureData>();
-    private static Dictionary<string, Tile> TileDictionary;
+    private static StructureTileManager instance = null;
+    public static StructureTileManager Instance {
+        get {return instance;}
+    }
+
+    private Dictionary<Vector3Int, StructureData> StructureData = new Dictionary<Vector3Int,StructureData>();
+    private Dictionary<string, Tile> TileDictionary;
+
+    private void Awake(){
+        if(instance != null && instance != this) {
+            Destroy(gameObject);
+        } else {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     void Start(){
         TilemapStructures = GameObject.FindWithTag("Structures").GetComponent<Tilemap>();
         TileDictionary = new Dictionary<string, Tile>()
@@ -24,7 +38,7 @@ public class StructureTileManager : MonoBehaviour
         };
     }
 
-    public static void CreateStructure(Vector3Int coord, Structure structure){
+    public void CreateStructure(Vector3Int coord, Structure structure){
         if (GetStructureData(coord) != null){
             PutAwayStructure(coord);
         }
@@ -46,7 +60,7 @@ public class StructureTileManager : MonoBehaviour
     }
 
     public delegate void PutAwayStructureDelegate();
-    public static bool PutAwayStructure(Vector3Int coord, PutAwayStructureDelegate d){
+    public bool PutAwayStructure(Vector3Int coord, PutAwayStructureDelegate d){
         Debug.Log(coord);
         StructureData data = GetStructureData(coord);
         if (data == null){
@@ -59,7 +73,7 @@ public class StructureTileManager : MonoBehaviour
         return true;
     }
 
-    public static bool PutAwayStructure(Vector3Int coord){
+    public bool PutAwayStructure(Vector3Int coord){
         Debug.Log(coord);
         StructureData data = GetStructureData(coord);
         if (data == null){
@@ -71,7 +85,7 @@ public class StructureTileManager : MonoBehaviour
         return true;
     }
 
-    public static StructureData GetStructureData(Vector3Int coord){
+    public StructureData GetStructureData(Vector3Int coord){
         try {
             return StructureData[coord];
         }

@@ -43,7 +43,7 @@ public class StructureModeManager : MonoBehaviour
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
         if (click0 && mode == "Delete"){
-            StructureTileManager.PutAwayStructure(currentCell);
+            StructureTileManager.Instance.PutAwayStructure(currentCell);
         }
 
         // handle color highlighting
