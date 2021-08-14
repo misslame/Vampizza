@@ -7,7 +7,6 @@ using UnityEngine.Tilemaps;
 public class StructureModeManager : MonoBehaviour
 {
     [SerializeField] GameObject DeleteModeToggle;
-    [SerializeField] Grid GameGrid;
 
     public Dictionary<string, Toggle> modes = new Dictionary<string, Toggle>()
     {
@@ -23,7 +22,7 @@ public class StructureModeManager : MonoBehaviour
     void Start()
     {
         modes["Delete"] = DeleteModeToggle.GetComponent<Toggle>();
-        TilemapStructures = GameGrid.transform.Find("TilemapStructures").GetComponent<Tilemap>();
+        TilemapStructures = GameObject.FindGameObjectWithTag("Structures").GetComponent<Tilemap>();
 
         // eventually do this iteratively with each mode
         modes["Delete"].onValueChanged.AddListener(delegate(bool isOn){
