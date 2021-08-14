@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    // Singleton stuff
+    private static Inventory instance = null;
+    public static Inventory Instance { // MUST BE READ-ONLY DO NOT ADD A SET PROPERTY. 
+        get { return instance; } 
+    }
+
     // Unity Objects
     public GridLayoutGroup slotHolder;
     public GameObject slotInventoryCopy;
@@ -14,13 +20,13 @@ public class Inventory : MonoBehaviour {
     public string currentTab;
 
     
-    public static Dictionary<string, int> structureQuantities = new Dictionary<string, int>
+    public Dictionary<string, int> structureQuantities = new Dictionary<string, int>
     {
         {"TownHome", 2},
         {"FarmPlot", 3}
     };
 
-    public static Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
+    public Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
     {
         {"Blood", 0},
         {"Tomato", 0},

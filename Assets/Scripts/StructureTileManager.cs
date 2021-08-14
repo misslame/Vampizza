@@ -49,7 +49,7 @@ public class StructureTileManager : MonoBehaviour
             TilemapStructures.SetTile(coord, TileDictionary["Invalid"]);
             return;
         }
-        Inventory.structureQuantities[structure.GetType().ToString()]--;
+        Inventory.Instance.structureQuantities[structure.GetType().ToString()]--;
         TilemapStructures.SetTile(coord, TileDictionary[structureString]);
         StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
         
@@ -66,7 +66,7 @@ public class StructureTileManager : MonoBehaviour
         if (data == null){
             return false;
         }
-        Inventory.structureQuantities[data.structure.GetType().ToString()]++;
+        Inventory.Instance.structureQuantities[data.structure.GetType().ToString()]++;
         TilemapStructures.SetTile(coord, null);
         StructureData.Remove(coord);
         d();
@@ -79,7 +79,7 @@ public class StructureTileManager : MonoBehaviour
         if (data == null){
             return false;
         }
-        Inventory.structureQuantities[data.structure.GetType().ToString()]++;
+        Inventory.Instance.structureQuantities[data.structure.GetType().ToString()]++;
         TilemapStructures.SetTile(coord, null);
         StructureData.Remove(coord);
         return true;

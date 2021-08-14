@@ -32,7 +32,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
                 Player.Instance.SubtractCurrency(((Structure)SlotContent).GetPrice());
-                Inventory.structureQuantities[SlotContent.GetType().ToString()]++;
+                Inventory.Instance.structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
                 Debug.Log(Player.Instance.CurrentCurrency);
                 Player.Instance.currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
