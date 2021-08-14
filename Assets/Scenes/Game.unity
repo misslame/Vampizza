@@ -142266,9 +142266,9 @@ RectTransform:
   m_Father: {fileID: 1733871936}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 685.00006, y: -350}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -120.5, y: 114.22}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632040476
@@ -142770,10 +142770,10 @@ RectTransform:
   m_Father: {fileID: 1733871936}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -31.286, y: -91}
-  m_SizeDelta: {x: 62.5716, y: 60.2684}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -31.286, y: 107.2}
+  m_SizeDelta: {x: 62.5716, y: 60.268402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &953002245
 Animator:
@@ -143023,7 +143023,6 @@ MonoBehaviour:
   TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
-  Player: {fileID: 1805853877}
   InventoryGameObj: {fileID: 1461637378}
 --- !u!114 &1115053809
 MonoBehaviour:
@@ -143231,7 +143230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000009536743, y: -20.660995}
+  m_AnchoredPosition: {x: 0, y: -20.66098}
   m_SizeDelta: {x: 234.3137, y: 41.32199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1295002364
@@ -143845,7 +143844,6 @@ MonoBehaviour:
   slotHolder: {fileID: 696518238}
   slotInventoryCopy: {fileID: 1115053806}
   slotShopCopy: {fileID: 1474219587}
-  player: {fileID: 1805853877}
   currentTab: 
 --- !u!1 &1466914927
 GameObject:
@@ -144025,7 +144023,6 @@ MonoBehaviour:
   TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
   FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
-  Player: {fileID: 1805853877}
   InventoryGameObj: {fileID: 1461637378}
 --- !u!114 &1474219591
 MonoBehaviour:
@@ -145269,8 +145266,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900339824}
   m_HandleRect: {fileID: 1900339823}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.59546614
+  m_Value: 1.0000004
+  m_Size: 0.5954661
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
