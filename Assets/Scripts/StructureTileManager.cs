@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class StructureTileHandler : MonoBehaviour
+public class StructureTileManager : MonoBehaviour
 {
     static Tilemap TilemapStructures;
     [SerializeField] Tile TownHomeTile;

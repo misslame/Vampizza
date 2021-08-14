@@ -122,7 +122,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             TilemapPreview.SetTile(LastDraggedOverCell, null);
 
             // Use the StructureTileHandler to create a new structure
-            StructureTileHandler.CreateStructure(LastDraggedOverCell, (Structure)SlotContent);            
+            StructureTileManager.CreateStructure(LastDraggedOverCell, (Structure)SlotContent);            
             
             inventory.PopulateStructuresTab();
         }

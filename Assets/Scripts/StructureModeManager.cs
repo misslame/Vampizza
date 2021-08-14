@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
-public class StructureModeHandler : MonoBehaviour
+public class StructureModeManager : MonoBehaviour
 {
     [SerializeField] GameObject DeleteModeToggle;
     [SerializeField] Grid GameGrid;
@@ -43,7 +43,7 @@ public class StructureModeHandler : MonoBehaviour
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
         if (click0 && mode == "Delete"){
-            StructureTileHandler.PutAwayStructure(currentCell);
+            StructureTileManager.PutAwayStructure(currentCell);
         }
 
         // handle color highlighting
