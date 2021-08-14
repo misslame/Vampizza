@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
     }
     
     public void SubtractCurrency(double amount) {
-        if (amount > 0 && amount < currency) {
+        if (amount > 0 && amount <= currency) {
             currency -= amount;
         }else {
             // TO DO/ DECISION NEEDED: THROW EXCEPTION OR HANDLE UNEXPECTED OUTCOME IN SOME WAY. 
