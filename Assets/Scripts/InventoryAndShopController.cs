@@ -163,7 +163,7 @@ public class InventoryAndShopController : MonoBehaviour {
 
                 // Show slot, then update transform
                 showSlot(newSlot);
-                newSlot.transform.parent = slotHolder.transform;
+                newSlot.transform.SetParent(slotHolder.transform);
 
                 if (shopMode) {
                     // Do sprite stuff
