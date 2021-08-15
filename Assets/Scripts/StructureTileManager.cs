@@ -39,7 +39,7 @@ public class StructureTileManager : MonoBehaviour
     }
 
     public void BuildStructure(Vector3Int coord, Structure structure){
-        if (Inventory.Instance.structureQuantities[structure.GetType().ToString()] <= 0){
+        if (Player.Instance.structureQuantities[structure.GetType().ToString()] <= 0){
             Debug.Log("You don't have enough of this structure");
             return;
         }
@@ -53,7 +53,7 @@ public class StructureTileManager : MonoBehaviour
             TilemapStructures.SetTile(coord, TileDictionary["Invalid"]);
             return;
         }
-        Inventory.Instance.structureQuantities[structure.GetType().ToString()]--;
+        Player.Instance.structureQuantities[structure.GetType().ToString()]--;
         TilemapStructures.SetTile(coord, TileDictionary[structureString]);
         StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
     }
@@ -65,7 +65,7 @@ public class StructureTileManager : MonoBehaviour
         if (data == null){
             return false;
         }
-        Inventory.Instance.structureQuantities[data.structure.GetType().ToString()]++;
+        Player.Instance.structureQuantities[data.structure.GetType().ToString()]++;
         TilemapStructures.SetTile(coord, null);
         StructureData.Remove(coord);
         d();
@@ -78,7 +78,7 @@ public class StructureTileManager : MonoBehaviour
         if (data == null){
             return false;
         }
-        Inventory.Instance.structureQuantities[data.structure.GetType().ToString()]++;
+        Player.Instance.structureQuantities[data.structure.GetType().ToString()]++;
         TilemapStructures.SetTile(coord, null);
         StructureData.Remove(coord);
         return true;

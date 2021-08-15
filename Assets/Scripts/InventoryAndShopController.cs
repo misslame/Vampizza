@@ -20,8 +20,6 @@ public class InventoryAndShopController : MonoBehaviour {
 
     // Modified objects
     public Text panelTitle;
-
-    public Inventory inventory;
     private string currentTab;
 
     // Slot-related
@@ -152,7 +150,7 @@ public class InventoryAndShopController : MonoBehaviour {
 
         foreach (KeyValuePair<string, Item> entry in inventorySlots) {
             if(entry.Key.Contains("stc")) {
-                if (!shopMode && Inventory.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
+                if (!shopMode && Player.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
                     continue;
                 }
                 slotCopy = shopMode ? slotShopCopy:slotInventoryCopy;
@@ -173,7 +171,7 @@ public class InventoryAndShopController : MonoBehaviour {
                     slotHolder.cellSize = new Vector2(250f, 80f);
 
                     newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().text = ((Structure)entry.Value).GetPrice().ToString();
-                    newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = Inventory.Instance.structureQuantities[entry.Value.GetType().ToString()].ToString();
+                    newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = Player.Instance.structureQuantities[entry.Value.GetType().ToString()].ToString();
 
                     // Fancy Color changing for the text for feedback. 
                     if(Player.Instance.CurrentCurrency >= ((Structure)entry.Value).GetPrice()) {
@@ -182,11 +180,11 @@ public class InventoryAndShopController : MonoBehaviour {
                         newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If player cannot afford, make text color red. 
                     }
 
-                    if(Inventory.Instance.structureQuantities[entry.Value.GetType().ToString()] <= 0) {
+                    if(Player.Instance.structureQuantities[entry.Value.GetType().ToString()] <= 0) {
                         newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If they have 0 of this item in their inventory. 
                     }
                 } else {
-                    if (Inventory.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
+                    if (Player.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
                         continue;
                     }
 
@@ -195,7 +193,7 @@ public class InventoryAndShopController : MonoBehaviour {
                     // Do sprite stuff
                     newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                     newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-                    newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + Inventory.Instance.structureQuantities[entry.Value.GetType().ToString()];
+                    newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + Player.Instance.structureQuantities[entry.Value.GetType().ToString()];
                 }
             }
         }

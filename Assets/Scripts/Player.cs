@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /***********************************
@@ -55,6 +56,12 @@ public class Player : MonoBehaviour {
         get { return blood; }
         set { blood = value; }
     }
+    
+    public Dictionary<string, int> structureQuantities = new Dictionary<string, int>
+    {
+        {"TownHome", 2},
+        {"FarmPlot", 3}
+    };
 
     //UI ELEMENT REFERENCES
     public LevelBar levelBar;

@@ -32,7 +32,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
                 Debug.Log("<color=red>Not enough currency to buy that!</color>");
             } else {
                 Player.Instance.SubtractCurrency(((Structure)SlotContent).GetPrice());
-                Inventory.Instance.structureQuantities[SlotContent.GetType().ToString()]++;
+                Player.Instance.structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryAndShopController.Instance.PopulateStructuresTab();
                 Debug.Log(Player.Instance.CurrentCurrency);
                 Player.Instance.currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
@@ -116,7 +116,6 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public void OnEndDrag(PointerEventData eventData) {
         
         if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
-            Inventory inventory = InventoryGameObj.GetComponent<Inventory>();
             // Using lastest cell coordinate that was dragged over in the preview grid, delete the
             // preview tile and update the structure tilegrid.
             TilemapPreview.SetTile(LastDraggedOverCell, null);
