@@ -26,12 +26,14 @@ public class Inventory : MonoBehaviour {
         {"FarmPlot", 3}
     };
 
-    public Dictionary<string, int> resourceQuantities = new Dictionary<string, int>
-    {
-        {"Blood", 0},
-        {"Tomato", 0},
-        {"Wheat", 0}
-    };
+    void Awake(){
+        if(instance != null && instance != this) {
+            Destroy(gameObject);
+        } else {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -48,9 +50,6 @@ public class Inventory : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update() { }
-
     // Use to hide slotCopy, which will persist
     void hideSlot(GameObject slot){
         // Hide component via set alpha to 0 and prevent receiving of input events
@@ -66,7 +65,6 @@ public class Inventory : MonoBehaviour {
     }
 
     void AddItemToInventory(Item i, string keyPrefix ) {
-        
         inventory.Add((keyPrefix + inventory.Count.ToString()), i);
     }
 
