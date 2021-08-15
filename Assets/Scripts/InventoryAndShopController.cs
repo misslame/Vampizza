@@ -34,7 +34,6 @@ public class InventoryAndShopController : MonoBehaviour {
             Destroy(gameObject);
         } else {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         handlePosition = uiHandleRectTransform.anchoredPosition;
@@ -130,7 +129,7 @@ public class InventoryAndShopController : MonoBehaviour {
                 Debug.Log(entry.Value);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
                 showSlot(newSlot);
-                newSlot.transform.parent = slotHolder.transform;
+                newSlot.transform.SetParent(slotHolder.transform);
 
                 newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
