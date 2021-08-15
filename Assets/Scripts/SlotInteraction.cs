@@ -33,7 +33,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             } else {
                 Player.Instance.SubtractCurrency(((Structure)SlotContent).GetPrice());
                 Inventory.Instance.structureQuantities[SlotContent.GetType().ToString()]++;
-                InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
+                InventoryAndShopController.Instance.PopulateStructuresTab();
                 Debug.Log(Player.Instance.CurrentCurrency);
                 Player.Instance.currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
             }
@@ -122,9 +122,9 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             TilemapPreview.SetTile(LastDraggedOverCell, null);
 
             // Use the StructureTileHandler to create a new structure
-            StructureTileManager.Instance.CreateStructure(LastDraggedOverCell, (Structure)SlotContent);            
+            StructureTileManager.Instance.BuildStructure(LastDraggedOverCell, (Structure)SlotContent);            
             
-            inventory.PopulateStructuresTab();
+            InventoryAndShopController.Instance.PopulateStructuresTab();
         }
         Debug.Log("You have stopped dragging the pointer!");
     }

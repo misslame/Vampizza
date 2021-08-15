@@ -38,7 +38,11 @@ public class StructureTileManager : MonoBehaviour
         };
     }
 
-    public void CreateStructure(Vector3Int coord, Structure structure){
+    public void BuildStructure(Vector3Int coord, Structure structure){
+        if (Inventory.Instance.structureQuantities[structure.GetType().ToString()] <= 0){
+            Debug.Log("You don't have enough of this structure");
+            return;
+        }
         if (GetStructureData(coord) != null){
             PutAwayStructure(coord);
         }
@@ -52,11 +56,6 @@ public class StructureTileManager : MonoBehaviour
         Inventory.Instance.structureQuantities[structure.GetType().ToString()]--;
         TilemapStructures.SetTile(coord, TileDictionary[structureString]);
         StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
-        
-        // debug only xD hahaha lololol!11!!!!!!!!!1111 :3 💯💯💯💯
-        foreach (KeyValuePair<Vector3Int,StructureData> item in StructureData){
-            Debug.Log(GetStructureData(new Vector3Int(-500, 0, 0)));
-        }
     }
 
     public delegate void PutAwayStructureDelegate();

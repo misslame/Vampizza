@@ -23,6 +23,6 @@ public class ToggleShop : MonoBehaviour
 
     void ToggleValueChanged(Toggle change)
     {
-        InventoryGameObj.GetComponent<Inventory>().PopulateStructuresTab();
+        InventoryAndShopController.Instance.PopulateStructuresTab();
     }
 }
