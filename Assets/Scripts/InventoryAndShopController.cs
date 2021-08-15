@@ -11,22 +11,22 @@ public class InventoryAndShopController : MonoBehaviour {
     }
 
     // Toggle object mechanics. 
-    [SerializeField] RectTransform uiHandleRectTransform;
-    public Toggle toggleShopOrInventory;
-    Vector2 handlePosition;
+    [SerializeField] private RectTransform uiHandleRectTransform;
+    private Toggle toggleShopOrInventory;
+    private Vector2 handlePosition;
 
     // Panel mechanics
-    public GameObject inventoryPanel;
+    private GameObject inventoryPanel;
 
     // Modified objects
-    public Text panelTitle;
+    private Text panelTitle;
     private string currentTab;
 
     // Slot-related
-    Dictionary<string, Item> inventorySlots = new Dictionary<string, Item>();
-    [SerializeField] GridLayoutGroup slotHolder;
-    [SerializeField] GameObject slotInventoryCopy;
-    [SerializeField] GameObject slotShopCopy;
+    private Dictionary<string, Item> inventorySlots = new Dictionary<string, Item>();
+    [SerializeField] private GridLayoutGroup slotHolder;
+    [SerializeField] private GameObject slotInventoryCopy;
+    [SerializeField] private GameObject slotShopCopy;
     private void Awake() {
         if(instance != null && instance != this) {
             Destroy(gameObject);
