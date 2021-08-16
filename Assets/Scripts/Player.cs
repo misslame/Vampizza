@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
         get { return instance; } 
     }
 
+
+
     //PRIVATE PLAYER ATTRIBUTES
     private PlayerData data;
     private string playerName;
@@ -79,6 +81,7 @@ public class Player : MonoBehaviour {
         citizen = 100;
         blood = 0;
         playerName = "Chuck";
+
     }
 
     private void Awake() {
@@ -102,6 +105,8 @@ public class Player : MonoBehaviour {
         levelDisplay.SetLevelText(level);
         citizenDisplay.SetCitizenText(citizen);
         currencyDisplay.SetCurrencyText(currency);
+
+
     }
 
     // Update is called once per frame

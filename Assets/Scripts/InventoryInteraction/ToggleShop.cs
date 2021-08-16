@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ToggleShop : MonoBehaviour
 {
-    [SerializeField] GameObject InventoryGameObj;
     Toggle shopToggle;
 
     void Start(){

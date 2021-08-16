@@ -10,10 +10,17 @@ public class InventoryAndShopController : MonoBehaviour {
         get { return instance; } 
     }
 
+    //PLAYER'S PERSONAL INVENTORY OF ITEMS (STRUCTURES/RESOURCES)
+    private ItemInventory inventory = new ItemInventory();
+
     // Toggle object mechanics. 
     [SerializeField] private RectTransform uiHandleRectTransform;
-    private Toggle toggleShopOrInventory;
+    [SerializeField] private Toggle toggleShopOrInventory;
     private Vector2 handlePosition;
+
+    public Toggle ShopAndInventoryToggle {
+        get { return toggleShopOrInventory; }
+    }
 
     // Panel mechanics
     private GameObject inventoryPanel;
@@ -23,7 +30,6 @@ public class InventoryAndShopController : MonoBehaviour {
     private string currentTab;
 
     // Slot-related
-    private Dictionary<string, Item> inventorySlots = new Dictionary<string, Item>();
     [SerializeField] private GridLayoutGroup slotHolder;
     [SerializeField] private GameObject slotInventoryCopy;
     [SerializeField] private GameObject slotShopCopy;
@@ -42,17 +48,10 @@ public class InventoryAndShopController : MonoBehaviour {
 
         hideSlot(slotInventoryCopy);
         hideSlot(slotShopCopy);
-        
-        AddSlotToInventory(new Wheat(3), "res");
-        AddSlotToInventory(new Tomato(2), "res");
-        AddSlotToInventory(new Blood(69), "res");
-        AddSlotToInventory(new TownHome(200), "stc");
-        AddSlotToInventory(new FarmPlot(100.00), "stc");
+
+        inventory.Init();
 
         PopulateResourcesTab();
-    }
-    private void AddSlotToInventory(Item i, string keyPrefix ) {
-        inventorySlots.Add((keyPrefix + inventorySlots.Count.ToString()), i);
     }
     private void hideSlot(GameObject slot){
         // Hide component via set alpha to 0 and prevent receiving of input events
@@ -112,19 +111,17 @@ public class InventoryAndShopController : MonoBehaviour {
     public void PopulateResourcesTab(){
         
         currentTab = "Resources";
-        Debug.Log("populate Resources");
         
         Sprite newSprite;
         GameObject newSlot;
 
         EmptyInventoryPanel();
-        Debug.Log(inventorySlots.ToString());
+        //Debug.Log(Player.Instance.Inventory.ToString());
 
-        foreach (KeyValuePair<string, Item> entry in inventorySlots) {
+        foreach(KeyValuePair<string, Item> entry in inventory) {
             Debug.Log(entry.Key);
             if (entry.Key.Contains("res")) {
                 newSlot = Instantiate(slotInventoryCopy, transform);
-                Debug.Log(entry.Value);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
                 showSlot(newSlot);
                 newSlot.transform.SetParent(slotHolder.transform);
@@ -148,7 +145,7 @@ public class InventoryAndShopController : MonoBehaviour {
         GameObject newSlot;
         GameObject slotCopy;
 
-        foreach (KeyValuePair<string, Item> entry in inventorySlots) {
+        foreach (KeyValuePair<string, Item> entry in inventory) {
             if(entry.Key.Contains("stc")) {
                 if (!shopMode && Player.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
                     continue;

@@ -141850,10 +141850,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 551384815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8146f326a47489458091fc0a8189a32, type: 3}
+  m_Script: {fileID: 11500000, guid: d1b327ed9ef78744985016c88f7e51d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryGameObj: {fileID: 1461637378}
 --- !u!1 &597649275
 GameObject:
   m_ObjectHideFlags: 0
@@ -142049,9 +142048,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiHandleRectTransform: {fileID: 1439527437}
   toggleShopOrInventory: {fileID: 551384817}
-  inventoryPanel: {fileID: 603731181}
-  panelTitle: {fileID: 352276613}
-  inventory: {fileID: 1461637384}
   slotHolder: {fileID: 696518238}
   slotInventoryCopy: {fileID: 1115053806}
   slotShopCopy: {fileID: 1474219587}
@@ -142179,7 +142175,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 624118260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0004c23373fbe7647a5f0dfc715e4894, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ad246c77c4d8fa408cd39a2755f3881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelSlider: {fileID: 624118263}
@@ -142331,7 +142327,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 632040474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efecdb53cd857a44eb6e8baf7540ca3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 14669b971699b444c83bf804ba6443c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &696518235
@@ -142702,7 +142698,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 946896636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31da2fabfa45e6e49836a64ba1017234, type: 3}
+  m_Script: {fileID: 11500000, guid: 4710c9c21cd7f0d408906bf3544ff3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DeleteModeToggle: {fileID: 632040474}
@@ -142730,7 +142726,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 946896636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b809d458826994b9a7d4f686279008, type: 3}
+  m_Script: {fileID: 11500000, guid: 03e49c1f121979841bab39dfccbfc3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
@@ -143480,7 +143476,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1329713546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e413a7694ab89354d975cc232e476858, type: 3}
+  m_Script: {fileID: 11500000, guid: 74702044bf85bd448aca7da60716a8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1329713548}
@@ -143722,7 +143718,6 @@ GameObject:
   - component: {fileID: 1461637379}
   - component: {fileID: 1461637382}
   - component: {fileID: 1461637381}
-  - component: {fileID: 1461637384}
   - component: {fileID: 1461637380}
   - component: {fileID: 1461637383}
   m_Layer: 5
@@ -143833,18 +143828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!114 &1461637384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461637378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa19f44c2bf188a4d83fb0459a72bbd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1466914927
 GameObject:
   m_ObjectHideFlags: 0
@@ -144632,7 +144615,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1614628933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5d8299b8c120348bfd90356c6aab4a, type: 3}
+  m_Script: {fileID: 11500000, guid: aa94ccf90601705479da21fae8bee62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currencyText: {fileID: 1614628935}
@@ -145180,7 +145163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1756645763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44f5126c308aba4abc13f5f5dfc6503, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f34bbe8c670efc4d9661aa9d84d0887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   citizenText: {fileID: 1756645765}
