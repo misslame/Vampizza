@@ -3,7 +3,11 @@ using UnityEngine.UI;
 
 public class LevelBar : MonoBehaviour {
 
-    public Slider levelSlider;
+    private Slider levelSlider;
+
+    void Awake() {
+        levelSlider = gameObject.GetComponent<Slider>();
+    }
 
     // Start is called before the first frame update
     void Start() { }
