@@ -142062,7 +142062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 606389351}
   m_Layer: 5
-  m_Name: LevelBarContainer (1)
+  m_Name: BloodBarContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142572,7 +142572,7 @@ GameObject:
   - component: {fileID: 702047635}
   - component: {fileID: 702047634}
   m_Layer: 5
-  m_Name: LevelFill
+  m_Name: BloodFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143010,7 +143010,7 @@ GameObject:
   - component: {fileID: 987226846}
   - component: {fileID: 987226845}
   m_Layer: 5
-  m_Name: LevelBarProgressImage
+  m_Name: BloodBarBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146388,7 +146388,7 @@ GameObject:
   - component: {fileID: 2070934102}
   - component: {fileID: 2070934101}
   m_Layer: 5
-  m_Name: LevelBar
+  m_Name: BloodBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
