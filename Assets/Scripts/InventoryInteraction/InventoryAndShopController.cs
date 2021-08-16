@@ -22,9 +22,6 @@ public class InventoryAndShopController : MonoBehaviour {
         get { return toggleShopOrInventory; }
     }
 
-    // Panel mechanics
-    private GameObject inventoryPanel;
-
     // Modified objects
     private Text panelTitle;
     private string currentTab;
@@ -83,15 +80,13 @@ public class InventoryAndShopController : MonoBehaviour {
     }
 
     public void ShowHideMenu() {
-        if (inventoryPanel != null) {
-            Animator animator = inventoryPanel.GetComponent<Animator>();
+        Animator animator = gameObject.GetComponent<Animator>();
 
-            if (animator != null) {
-                bool isOpen = animator.GetBool("ShowInventory");
-                animator.SetBool("ShowInventory", !isOpen);
-                if (currentTab == "Structures" && !isOpen){
-                    PopulateStructuresTab();
-                }
+        if (animator != null) {
+            bool isOpen = animator.GetBool("ShowInventory");
+            animator.SetBool("ShowInventory", !isOpen);
+            if (currentTab == "Structures" && !isOpen){
+                PopulateStructuresTab();
             }
         }
     }
@@ -119,7 +114,6 @@ public class InventoryAndShopController : MonoBehaviour {
         //Debug.Log(Player.Instance.Inventory.ToString());
 
         foreach(KeyValuePair<string, Item> entry in inventory) {
-            Debug.Log(entry.Key);
             if (entry.Key.Contains("res")) {
                 newSlot = Instantiate(slotInventoryCopy, transform);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
