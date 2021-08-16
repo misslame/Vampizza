@@ -23,7 +23,7 @@ public class InventoryAndShopController : MonoBehaviour {
     }
 
     // Modified objects
-    private Text panelTitle;
+    [SerializeField] private Text panelTitle;
     private string currentTab;
 
     // Slot-related
