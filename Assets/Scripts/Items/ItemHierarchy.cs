@@ -34,10 +34,13 @@ public abstract class Resource {
 
 public abstract class Structure {
 
+    private uint level;
+
     private double price;
 
     public Structure(double p) {
         price = p;
+        level = 1;
     }
     public abstract override string ToString();
 
