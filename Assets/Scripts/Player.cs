@@ -67,6 +67,7 @@ public class Player : MonoBehaviour {
 
     //UI ELEMENT REFERENCES
     public GenericBar levelBar;
+    public GenericBar bloodBar;
     public LevelDisplay levelDisplay;
     public CitizenDisplay citizenDisplay;
     public CurrencyDisplay currencyDisplay;
@@ -74,7 +75,6 @@ public class Player : MonoBehaviour {
     //CUSTOM CONTRUCTOR
     private Player() {
         data = GameState.GetPlayerData();
-
         exp = 0f;
         level = 1;
         currency = 0;
@@ -105,6 +105,7 @@ public class Player : MonoBehaviour {
         levelDisplay.SetLevelText(level);
         citizenDisplay.SetCitizenText(citizen);
         currencyDisplay.SetCurrencyText(currency);
+        bloodBar.SetAmountNeeded(level * 10);
 
 
     }
@@ -124,6 +125,7 @@ public class Player : MonoBehaviour {
             exp = 0f;
             levelDisplay.SetLevelText(level);
             levelBar.SetAmountNeeded(EXP_MODIFIER * level);
+            bloodBar.SetAmountNeeded(level * 10);
             ChangeExp(temp);
         } else {
             exp += expMod;
