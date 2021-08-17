@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
     private string playerName;
     private float exp;
     private ulong level;
-    private ulong citizen;
+    private ulong citizens;
     private double currency;
     private ulong blood;
 
@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
     }
 
     public ulong CitizenCount { // Read-only
-        get { return citizen; }
+        get { return citizens; }
     }
 
     public double CurrentCurrency { // Read-only
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
         exp = 0f;
         level = 1;
         currency = 0;
-        citizen = 100;
+        citizens = 100;
         blood = 0;
         playerName = "Chuck";
 
@@ -98,12 +98,12 @@ public class Player : MonoBehaviour {
         exp = 0f;
         level = 1;
         currency = 1000;
-        citizen = 100;
+        citizens = 100;
         blood = 0;
         playerName = "Chuck";
         levelBar.SetAmountNeeded(EXP_MODIFIER * level);
         levelDisplay.SetLevelText(level);
-        citizenDisplay.SetCitizenText(citizen);
+        citizenDisplay.SetCitizenText(citizens);
         currencyDisplay.SetCurrencyText(currency);
         bloodBar.SetAmountNeeded(level * 10);
         bloodBar.SetCurrentProgress(blood);
@@ -133,6 +133,12 @@ public class Player : MonoBehaviour {
             levelBar.SetCurrentProgress(exp);
         }
     }
+
+    public void ApplyBloodPenalty(){
+        SetCurrency(currency * 0.9);
+        citizens -= level;
+        citizenDisplay.SetCitizenText(citizens);
+    }
     
     public void SubtractCurrency(double amount) {
         if (amount > 0 && amount <= currency) {
@@ -140,7 +146,7 @@ public class Player : MonoBehaviour {
         }else {
             // TO DO/ DECISION NEEDED: THROW EXCEPTION OR HANDLE UNEXPECTED OUTCOME IN SOME WAY. 
         }
-        currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
+        UpdateCurrencyText();
     }
 
     public void AddCurrency(double amount) {
@@ -149,6 +155,15 @@ public class Player : MonoBehaviour {
         }else {
             // TO DO/ DECISION NEEDED: THROW EXCEPTION OR HANDLE UNEXPECTED OUTCOME IN SOME WAY. 
         }
+        UpdateCurrencyText();
+    }
+
+    public void SetCurrency(double amount){
+        currency = amount;
+        UpdateCurrencyText();
+    }
+
+    public void UpdateCurrencyText(){
         currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
     }
 }
