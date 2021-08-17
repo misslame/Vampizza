@@ -66,11 +66,11 @@ public class Player : MonoBehaviour {
     };
 
     //UI ELEMENT REFERENCES
-    public GenericBar levelBar;
-    public GenericBar bloodBar;
-    public LevelDisplay levelDisplay;
-    public CitizenDisplay citizenDisplay;
-    public CurrencyDisplay currencyDisplay;
+    [SerializeField] private GenericBar levelBar;
+    [SerializeField] private GenericBar bloodBar;
+    [SerializeField] private LevelDisplay levelDisplay;
+    [SerializeField] private CitizenDisplay citizenDisplay;
+    [SerializeField] private CurrencyDisplay currencyDisplay;
 
     //CUSTOM CONTRUCTOR
     private Player() {
@@ -106,6 +106,7 @@ public class Player : MonoBehaviour {
         citizenDisplay.SetCitizenText(citizen);
         currencyDisplay.SetCurrencyText(currency);
         bloodBar.SetAmountNeeded(level * 10);
+        bloodBar.SetCurrentProgress(blood);
 
 
     }
@@ -138,8 +139,8 @@ public class Player : MonoBehaviour {
             currency -= amount;
         }else {
             // TO DO/ DECISION NEEDED: THROW EXCEPTION OR HANDLE UNEXPECTED OUTCOME IN SOME WAY. 
-
         }
+        currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
     }
 
     public void AddCurrency(double amount) {
@@ -148,5 +149,6 @@ public class Player : MonoBehaviour {
         }else {
             // TO DO/ DECISION NEEDED: THROW EXCEPTION OR HANDLE UNEXPECTED OUTCOME IN SOME WAY. 
         }
+        currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
     }
 }

@@ -34,8 +34,6 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
                 Player.Instance.SubtractCurrency(((Structure)SlotContent).GetPrice());
                 Player.Instance.structureQuantities[SlotContent.GetType().ToString()]++;
                 InventoryAndShopController.Instance.PopulateStructuresTab();
-                Debug.Log(Player.Instance.CurrentCurrency);
-                Player.Instance.currencyDisplay.SetCurrencyText(Player.Instance.CurrentCurrency);
             }
         }
     }
