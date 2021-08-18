@@ -51,6 +51,11 @@ public abstract class Structure {
     public void ChangePrice(float newPrice) {
         price = newPrice;
     }
+
+    
+    public uint GetLevel() {
+        return level;
+    }
 }
 
 
