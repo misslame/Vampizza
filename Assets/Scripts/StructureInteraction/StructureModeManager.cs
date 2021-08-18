@@ -42,20 +42,6 @@ public class StructureModeManager : MonoBehaviour
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
-        StructureData currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
-
-        // don't do anything if current cell has nothing in it
-        if (StructureTileManager.Instance.GetStructureData(currentCell) == null){
-            return;
-        }
-        if (click0 && mode == "Delete"){
-            StructureTileManager.Instance.PutAwayStructure(currentCell);
-        }
-        if (click1 && mode == "Select"){
-            string title = "Lvl " + currentHoveredStructure.structure.GetLevel() + " - " + currentHoveredStructure.structure.ToString();
-            GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
-            .MoveToCursor(title, currentCell);
-        }
 
         // handle color highlighting
         if (!currentCell.Equals(lastCell)){
@@ -74,8 +60,22 @@ public class StructureModeManager : MonoBehaviour
                 default:
                     break;
             }
-            lastCell = currentCell;
         }
+
+        StructureData currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
+
+        // don't do anything if current cell has nothing in it
+        if (click0 && mode == "Delete"){
+            StructureTileManager.Instance.PutAwayStructure(currentCell);
+        }
+        if (click1 && mode == "Select"){
+            string title = "Lvl " + currentHoveredStructure.structure.GetLevel() + " - " + currentHoveredStructure.structure.ToString();
+            GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
+            .MoveToCursor(title, currentCell);
+        }
+
+        
+        lastCell.Set(currentCell.x, currentCell.y, currentCell.z);
     }
 
 
