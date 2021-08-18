@@ -20,6 +20,8 @@ public class ContextDisplay : MonoBehaviour
 
     void Awake(){
         ContextButtons = ButtonGroup.GetComponentsInChildren<Button>();
+
+        // Apply pointer event triggers for each button
         foreach(Button button in ContextButtons){
             EventTrigger trigger = button.GetComponent<EventTrigger>();
 
@@ -48,11 +50,9 @@ public class ContextDisplay : MonoBehaviour
         HideDescription();
     }
 
-    void Start(){
-        // here for debug reasons
-        // MoveToCursor();
-    }
-
+    /// <summary>
+    /// Callback function for pointer entry
+    /// </summary>
     private void OnPointerEnterDelegate(PointerEventData data, string name){
         if (textHighlighting.ContainsKey(name)){
             Debug.Log(name);
@@ -62,10 +62,16 @@ public class ContextDisplay : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Callback function for pointer leave
+    /// </summary>
     private void OnPointerLeaveDelegate(PointerEventData data){
         HideDescription();
     }
 
+    /// <summary>
+    /// Callback function for pointer click
+    /// </summary>
     private void OnPointerClickDelegate(PointerEventData data, string name){
         switch(name){
             case "Remove":
@@ -80,32 +86,54 @@ public class ContextDisplay : MonoBehaviour
         HideMenu();
     }
 
+    
+    /// <summary>
+    /// Shows bottom description section
+    /// </summary>
     private void ShowDescription(string n, Color c){
         Desc.text = n;
         Desc.color = c;
         Bottom.alpha = 1;
     }
-    
+
+    /// <summary>
+    /// Shows bottom description section
+    /// </summary>
     private void ShowDescription(string n){
         Desc.text = n;
         Desc.color = textHighlighting["None"];
         Bottom.alpha = 1;
     }
 
+    
+    /// <summary>
+    /// Hide bottom description section via 0 alpha
+    /// </summary>
     private void HideDescription(){
         Bottom.alpha = 0;
     }
+
+
+    /// <summary>
+    /// Hide bottom description section via 0 alpha
+    /// </summary>
     public void ShowMenu(){
         GetComponent<CanvasGroup>().alpha = 1;
         GetComponent<CanvasGroup>().interactable = true;
     }
 
+    /// <summary>
+    /// Show entire component
+    /// </summary>
     public void ShowMenu(string title){
         GetComponent<CanvasGroup>().alpha = 1;
         GetComponent<CanvasGroup>().interactable = true;
         Title.text = title;
     }
 
+    /// <summary>
+    /// Hide entire component
+    /// </summary>
     public void HideMenu(){
         GetComponent<CanvasGroup>().alpha = 0;
         GetComponent<CanvasGroup>().interactable = false;
@@ -113,6 +141,9 @@ public class ContextDisplay : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Moves component to cursor
+    /// </summary>
     public void MoveToCursor(Vector3Int selectedCoord){
         ShowMenu();
         CurrentSelectedCoord = selectedCoord;
@@ -124,6 +155,9 @@ public class ContextDisplay : MonoBehaviour
         gameObject.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
     }
 
+    /// <summary>
+    /// Moves component to cursor
+    /// </summary>
     public void MoveToCursor(string title, Vector3Int selectedCoord){
         ShowMenu(title);
         CurrentSelectedCoord = selectedCoord;
