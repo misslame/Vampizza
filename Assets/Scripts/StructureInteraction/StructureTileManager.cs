@@ -73,7 +73,6 @@ public class StructureTileManager : MonoBehaviour
     }
 
     public bool PutAwayStructure(Vector3Int coord){
-        Debug.Log(coord);
         StructureData data = GetStructureData(coord);
         if (data == null){
             return false;

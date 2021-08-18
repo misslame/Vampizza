@@ -109,6 +109,7 @@ public class ContextDisplay : MonoBehaviour
     public void HideMenu(){
         GetComponent<CanvasGroup>().alpha = 0;
         GetComponent<CanvasGroup>().interactable = false;
+        gameObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
     }
 
 
