@@ -64,11 +64,10 @@ public class StructureModeManager : MonoBehaviour
 
         StructureData currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
 
-        // don't do anything if current cell has nothing in it
-        if (click0 && mode == "Delete"){
+        if (click0 && mode == "Delete" && currentHoveredStructure != null){
             StructureTileManager.Instance.PutAwayStructure(currentCell);
         }
-        if (click1 && mode == "Select"){
+        if (click1 && mode == "Select" && currentHoveredStructure != null){
             string title = "Lvl " + currentHoveredStructure.structure.GetLevel() + " - " + currentHoveredStructure.structure.ToString();
             GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
             .MoveToCursor(title, currentCell);
