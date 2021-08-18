@@ -20,6 +20,8 @@ public class StructureTileManager : MonoBehaviour
     private Dictionary<string, Tile> TileDictionary;
 
     private void Awake(){
+
+        // singleton stuff 
         if(instance != null && instance != this) {
             Destroy(gameObject);
         } else {
@@ -28,7 +30,11 @@ public class StructureTileManager : MonoBehaviour
         }
     }
     void Start(){
+        // Keeps track of structure objects within the grid
         TilemapStructures = GameObject.FindWithTag("Structures").GetComponent<Tilemap>();
+
+        // For matching corresponding structure object with tile
+        // @TODO: maybe store references to tiles within structure class definitions
         TileDictionary = new Dictionary<string, Tile>()
         {
             {"Home", HomeTile},
@@ -38,40 +44,38 @@ public class StructureTileManager : MonoBehaviour
         };
     }
 
+    /// <summary>
+    /// Build structure from inventory. 
+    /// </summary>
     public void BuildStructure(Vector3Int coord, Structure structure){
-        if (Player.Instance.structureQuantities[structure.GetType().ToString()] <= 0){
+        string structureString = structure.GetType().ToString();
+        // Quantity check
+        if (Player.Instance.structureQuantities[structureString] <= 0){
             Debug.Log("You don't have enough of this structure");
             return;
         }
+
+        // If there's a structure already in the spot, put it away.
         if (GetStructureData(coord) != null){
             PutAwayStructure(coord);
         }
-        string structureString = structure.GetType().ToString();
-        Debug.Log(structureString);
-        if (!TileDictionary.ContainsKey(structure.GetType().ToString())){
+
+        // Handle Structure not having an entry in the TileDictionary
+        if (!TileDictionary.ContainsKey(structureString)){
             Debug.LogError("Stucture type not found!");
             TilemapStructures.SetTile(coord, TileDictionary["Invalid"]);
             return;
         }
-        Player.Instance.structureQuantities[structure.GetType().ToString()]--;
+
+        // Place Tile, add it to StructureData dictionary, decrement inventory quantity
         TilemapStructures.SetTile(coord, TileDictionary[structureString]);
         StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
+        Player.Instance.structureQuantities[structureString]--;
     }
 
-    public delegate void PutAwayStructureDelegate();
-    public bool PutAwayStructure(Vector3Int coord, PutAwayStructureDelegate d){
-        Debug.Log(coord);
-        StructureData data = GetStructureData(coord);
-        if (data == null){
-            return false;
-        }
-        Player.Instance.structureQuantities[data.structure.GetType().ToString()]++;
-        TilemapStructures.SetTile(coord, null);
-        StructureData.Remove(coord);
-        d();
-        return true;
-    }
-
+    /// <summary>
+    /// Puts away a structure into inventory for a given coord. Returns false if no structure is found.
+    /// </summary>
     public bool PutAwayStructure(Vector3Int coord){
         StructureData data = GetStructureData(coord);
         if (data == null){
@@ -83,6 +87,9 @@ public class StructureTileManager : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Returns StructureData object on given cell coordinate. Returns null if no structure is found.
+    /// </summary>
     public StructureData GetStructureData(Vector3Int coord){
         try {
             return StructureData[coord];
