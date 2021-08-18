@@ -53,7 +53,7 @@ public class ContextDisplay : MonoBehaviour
         // MoveToCursor();
     }
 
-    public void OnPointerEnterDelegate(PointerEventData data, string name){
+    private void OnPointerEnterDelegate(PointerEventData data, string name){
         if (textHighlighting.ContainsKey(name)){
             Debug.Log(name);
             ShowDescription(name, textHighlighting[name]);
@@ -62,11 +62,11 @@ public class ContextDisplay : MonoBehaviour
         }
     }
 
-    public void OnPointerLeaveDelegate(PointerEventData data){
+    private void OnPointerLeaveDelegate(PointerEventData data){
         HideDescription();
     }
 
-    public void OnPointerClickDelegate(PointerEventData data, string name){
+    private void OnPointerClickDelegate(PointerEventData data, string name){
         switch(name){
             case "Remove":
                 StructureTileManager.Instance.PutAwayStructure(CurrentSelectedCoord);
@@ -80,19 +80,19 @@ public class ContextDisplay : MonoBehaviour
         HideMenu();
     }
 
-    public void ShowDescription(string n, Color c){
+    private void ShowDescription(string n, Color c){
         Desc.text = n;
         Desc.color = c;
         Bottom.alpha = 1;
     }
     
-    public void ShowDescription(string n){
+    private void ShowDescription(string n){
         Desc.text = n;
         Desc.color = textHighlighting["None"];
         Bottom.alpha = 1;
     }
 
-    public void HideDescription(){
+    private void HideDescription(){
         Bottom.alpha = 0;
     }
     public void ShowMenu(){
