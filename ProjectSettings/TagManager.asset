@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Structures
   - Inventory
+  - ContextMenu
+  - Canvas
   layers:
   - Default
   - TransparentFX
