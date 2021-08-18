@@ -42,8 +42,14 @@ public class ContextDisplay : MonoBehaviour
 
             trigger.triggers.Add( entryEnter );
             trigger.triggers.Add( entryLeave );
+            trigger.triggers.Add( entryPress );
         }
         HideDescription();
+    }
+
+    void Start(){
+        // here for debug reasons
+        // MoveToCursor();
     }
 
     public void OnPointerEnterDelegate(PointerEventData data, string name){
@@ -91,7 +97,8 @@ public class ContextDisplay : MonoBehaviour
 
 
     [SerializeField] Canvas canvas;
-    void MoveToCursor(){
+    public void MoveToCursor(){
+        ShowMenu();
         RectTransform CanvasRect=canvas.GetComponent<RectTransform>();
         Vector2 ViewportPosition=Camera.main.ScreenToViewportPoint(Input.mousePosition);
         Vector2 WorldObject_ScreenPosition=new Vector2(

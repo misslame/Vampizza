@@ -38,11 +38,15 @@ public class StructureModeManager : MonoBehaviour
     void Update()
     {
         bool click0 = Input.GetMouseButtonDown(0);
+        bool click1 = Input.GetMouseButtonDown(1);
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 noZ = new Vector3(pos.x, pos.y);
         currentCell = TilemapStructures.WorldToCell(noZ);
         if (click0 && mode == "Delete"){
             StructureTileManager.Instance.PutAwayStructure(currentCell);
+        }
+        if (click1 && mode == "Select"){
+            GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>().MoveToCursor();
         }
 
         // handle color highlighting
