@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    [SerializeField] private uint secondsInNight;
-    private uint totalElapsedSeconds = 0;
-    private uint seconds = 0;
-    private uint night = 1;
+    [SerializeField] private Text NightCount;
+    [SerializeField] private Text NightSeconds;
+    [SerializeField] private Image PieClock;
+    [SerializeField] private int secondsInNight;
+    private int totalElapsedSeconds = 0;
+    private int seconds;
+    private int night = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("count", 1f, 1f);
+        seconds = secondsInNight;
+        NightCount.text = "Night " + night;
+        InvokeRepeating("count", 0f, 1f);
     }
 
+
+    // TODO: move UI related code to different script
     private void count(){
         totalElapsedSeconds++;
-        seconds++;
-        if (seconds > secondsInNight){
-            seconds = 0;
+        seconds--;
+        if (seconds == 0){
+            seconds = secondsInNight;
             night++;
+            NightCount.text = "Night " + night;
             print("The night has passed.");
         }
+        NightSeconds.text = "" + seconds;
+        PieClock.fillAmount = (float)seconds/(float)secondsInNight;
     }
 }
