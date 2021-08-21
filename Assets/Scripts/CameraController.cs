@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CameraControler : MonoBehaviour {
+public class CameraController : MonoBehaviour {
 
     public float PAN_MIN_X = 20;
     public float PAN_MAX_X = 20;
