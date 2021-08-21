@@ -192,7 +192,7 @@ public class InventoryAndShopController : MonoBehaviour {
     }
 
     public void PopulateDecorTab() {
-
+        currentTab = "Decor";
         /* DEBUG: temporary action. Will eventually implement official "empty list" */
 
         EmptyInventoryPanel();
