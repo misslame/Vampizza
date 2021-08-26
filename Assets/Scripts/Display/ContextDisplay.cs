@@ -12,6 +12,7 @@ public class ContextDisplay : MonoBehaviour
     [SerializeField] private Canvas canvas;
     Dictionary<string, Color> textHighlighting = new Dictionary<string, Color>{
         {"Remove", new Color(1f, 0f, 0f, 1f)},
+        {"harvest", new Color(1f,0f,0f,1f) },
         {"Upgrade", new Color(0f, 1f, 0f, 1f)},
         {"None", new Color(1f, 1f, 1f, 1f)}
     };

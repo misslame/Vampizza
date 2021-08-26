@@ -6,7 +6,7 @@ public class FarmPlot : Structure, Item {
     }
 
     public string GetImageURL() {
-        return "crop";
+        return "Crops/crop_base";
     }
 
     public void OnAction() {

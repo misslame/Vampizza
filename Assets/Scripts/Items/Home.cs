@@ -6,7 +6,7 @@ public class Home : Structure, Item {
     }
 
     public string GetImageURL() {
-        return "house";
+        return "Structures/house";
     }
 
     public void OnAction() {
