@@ -1,3 +1,5 @@
+using UnityEngine;
+using UnityEngine.Tilemaps;
 public interface Item {
 
     public abstract string GetDescription();
@@ -33,6 +35,7 @@ public abstract class Resource {
 }
 
 public abstract class Structure {
+    private Tile tile;
 
     private uint level;
 
@@ -41,8 +44,10 @@ public abstract class Structure {
     public Structure(double p) {
         price = p;
         level = 1;
+        tile = (Tile)Resources.Load(GetTileURL());
     }
     public abstract override string ToString();
+    public abstract string GetTileURL();
 
     public double GetPrice() {
         return price;
@@ -55,6 +60,10 @@ public abstract class Structure {
     
     public uint GetLevel() {
         return level;
+    }
+
+    public Tile GetTile() {
+        return tile;
     }
 }
 

@@ -9,6 +9,10 @@ public class Home : Structure, Item {
         return "Structures/house";
     }
 
+    public override string GetTileURL(){
+        return "TileSprites/house";
+    }
+
     public void OnAction() {
         throw new System.NotImplementedException();
     }

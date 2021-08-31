@@ -9,6 +9,9 @@ public class TownHome : Structure, Item {
     public string GetImageURL() {
         return "Structures/house";
     }
+    public override string GetTileURL(){
+        return "TileSprites/house";
+    }
 
     public void OnAction() {
         throw new System.NotImplementedException();
