@@ -86,23 +86,8 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             if (!currentCell.Equals(LastDraggedOverCell)){
                 TilemapPreview.SetTile(LastDraggedOverCell, null);
 
-                // There's probably a better way to do this that isn't a switch statement
-                switch(SlotContent.GetType().ToString()){
-                    case "FarmPlot":
-                        TilemapPreview.SetTile(currentCell, FarmPlotTile);
-                        SelectedTile = FarmPlotTile;
-                        break;
-                    case "Home":
-                        TilemapPreview.SetTile(currentCell, HomeTile);
-                        SelectedTile = HomeTile;
-                        break;
-                    case "TownHome":
-                        TilemapPreview.SetTile(currentCell, TownHomeTile);
-                        SelectedTile = TownHomeTile;
-                        break;
-                    default:
-                        break;
-                }
+                TilemapPreview.SetTile(currentCell,((Structure)SlotContent).GetTile());
+                SelectedTile = ((Structure)SlotContent).GetTile();
             }
             
             // Update last cell that was dragged over
