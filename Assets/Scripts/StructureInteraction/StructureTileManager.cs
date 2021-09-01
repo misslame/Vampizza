@@ -16,7 +16,7 @@ public class StructureTileManager : MonoBehaviour
         get {return instance;}
     }
 
-    private Dictionary<Vector3Int, StructureData> StructureData = new Dictionary<Vector3Int,StructureData>();
+    private Dictionary<Vector3Int, Structure> StructureData = new Dictionary<Vector3Int,Structure>();
     private Dictionary<string, Tile> TileDictionary;
 
     private void Awake(){
@@ -69,7 +69,7 @@ public class StructureTileManager : MonoBehaviour
 
         // Place Tile, add it to StructureData dictionary, decrement inventory quantity
         TilemapStructures.SetTile(coord, structure.GetTile());
-        StructureData.Add(coord, new StructureData(structure, structure.GetTile()));
+        StructureData.Add(coord, structure);
         Player.Instance.structureQuantities[structureString]--;
     }
 
@@ -77,11 +77,11 @@ public class StructureTileManager : MonoBehaviour
     /// Puts away a structure into inventory for a given coord. Returns false if no structure is found.
     /// </summary>
     public bool PutAwayStructure(Vector3Int coord){
-        StructureData data = GetStructureData(coord);
+        Structure data = GetStructureData(coord);
         if (data == null){
             return false;
         }
-        Player.Instance.structureQuantities[data.structure.GetType().ToString()]++;
+        Player.Instance.structureQuantities[data.GetType().ToString()]++;
         TilemapStructures.SetTile(coord, null);
         StructureData.Remove(coord);
         return true;
@@ -90,7 +90,7 @@ public class StructureTileManager : MonoBehaviour
     /// <summary>
     /// Returns StructureData object on given cell coordinate. Returns null if no structure is found.
     /// </summary>
-    public StructureData GetStructureData(Vector3Int coord){
+    public Structure GetStructureData(Vector3Int coord){
         try {
             return StructureData[coord];
         }

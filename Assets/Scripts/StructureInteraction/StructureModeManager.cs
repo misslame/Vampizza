@@ -62,13 +62,13 @@ public class StructureModeManager : MonoBehaviour
             }
         }
 
-        StructureData currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
+        Structure currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
 
         if (click0 && mode == "Delete" && currentHoveredStructure != null){
             StructureTileManager.Instance.PutAwayStructure(currentCell);
         }
         if (click1 && mode == "Select" && currentHoveredStructure != null){
-            string title = "Lvl " + currentHoveredStructure.structure.GetLevel() + " - " + currentHoveredStructure.structure.ToString();
+            string title = "Lvl " + currentHoveredStructure.GetLevel() + " - " + currentHoveredStructure.ToString();
             GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
             .MoveToCursor(title, currentCell);
         }
