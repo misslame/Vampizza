@@ -63,13 +63,13 @@ public class StructureTileManager : MonoBehaviour
         // Handle Structure not having an entry in the TileDictionary
         if (!TileDictionary.ContainsKey(structureString)){
             Debug.LogError("Stucture type not found!");
-            TilemapStructures.SetTile(coord, TileDictionary["Invalid"]);
+            TilemapStructures.SetTile(coord, InvalidTile);
             return;
         }
 
         // Place Tile, add it to StructureData dictionary, decrement inventory quantity
-        TilemapStructures.SetTile(coord, TileDictionary[structureString]);
-        StructureData.Add(coord, new StructureData(structure, TileDictionary[structureString]));
+        TilemapStructures.SetTile(coord, structure.GetTile());
+        StructureData.Add(coord, new StructureData(structure, structure.GetTile()));
         Player.Instance.structureQuantities[structureString]--;
     }
 
