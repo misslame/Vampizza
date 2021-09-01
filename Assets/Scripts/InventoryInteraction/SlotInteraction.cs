@@ -42,7 +42,6 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public void OnBeginDrag(PointerEventData eventData) {
         Debug.Log("You are now dragging the pointer!");
 
-
         if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
             // Get animator component, then hide slider
             Animator anim = InventoryPanelSlider.GetComponent<Animator>();
@@ -60,7 +59,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     public void OnDrag(PointerEventData eventData) {
         // Debug.Log("You dragged for a frame!");
         
-        if (!shopMode){
+        if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
             // Convert cursor screen pos. to world pos., then convert + save world pos. into grid cell coord
             double maxWidth = Camera.main.pixelRect.width;
             double maxHeight = Camera.main.pixelRect.height;
