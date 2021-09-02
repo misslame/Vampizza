@@ -60,6 +60,7 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         // Debug.Log("You dragged for a frame!");
         
         if (!shopMode && SlotContent.GetType().BaseType.ToString() == "Structure"){
+            Structure StructureSlotContent = (Structure)SlotContent;
             // Convert cursor screen pos. to world pos., then convert + save world pos. into grid cell coord
             double maxWidth = Camera.main.pixelRect.width;
             double maxHeight = Camera.main.pixelRect.height;
@@ -85,8 +86,8 @@ public class SlotInteraction : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             if (!currentCell.Equals(LastDraggedOverCell)){
                 TilemapPreview.SetTile(LastDraggedOverCell, null);
 
-                TilemapPreview.SetTile(currentCell,((Structure)SlotContent).GetTile());
-                SelectedTile = ((Structure)SlotContent).GetTile();
+                TilemapPreview.SetTile(currentCell,StructureSlotContent.GetTile());
+                SelectedTile = StructureSlotContent.GetTile();
             }
             
             // Update last cell that was dragged over
