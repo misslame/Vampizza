@@ -5,11 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class StructureTileManager : MonoBehaviour
 {
-    static Tilemap TilemapStructures;
-    [SerializeField] Tile TownHomeTile;
-    [SerializeField] Tile HomeTile;
-    [SerializeField] Tile FarmPlotTile;
-    [SerializeField] Tile InvalidTile;
+    private Tilemap TilemapStructures;
+    [SerializeField] private Tile InvalidTile;
 
     private static StructureTileManager instance = null;
     public static StructureTileManager Instance {
@@ -17,7 +14,7 @@ public class StructureTileManager : MonoBehaviour
     }
 
     private Dictionary<Vector3Int, Structure> StructureData = new Dictionary<Vector3Int,Structure>();
-    private Dictionary<string, Tile> TileDictionary;
+    private List<string> TileList;
 
     private void Awake(){
 
@@ -35,12 +32,11 @@ public class StructureTileManager : MonoBehaviour
 
         // For matching corresponding structure object with tile
         // @TODO: maybe store references to tiles within structure class definitions
-        TileDictionary = new Dictionary<string, Tile>()
+        TileList = new List<string>()
         {
-            {"Home", HomeTile},
-            {"TownHome", HomeTile},
-            {"FarmPlot", FarmPlotTile},
-            {"Invalid", InvalidTile}
+            "Home", 
+            "TownHome",
+            "FarmPlot", 
         };
     }
 
@@ -61,11 +57,12 @@ public class StructureTileManager : MonoBehaviour
         }
 
         // Handle Structure not having an entry in the TileDictionary
-        if (!TileDictionary.ContainsKey(structureString)){
+        if (!TileList.Contains(structureString)){
             Debug.LogError("Stucture type not found!");
             TilemapStructures.SetTile(coord, InvalidTile);
             return;
         }
+
 
         // Place Tile, add it to StructureData dictionary, decrement inventory quantity
         TilemapStructures.SetTile(coord, structure.GetTile());
