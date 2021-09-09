@@ -143238,6 +143238,7 @@ GameObject:
   - component: {fileID: 720456040}
   - component: {fileID: 720456042}
   - component: {fileID: 720456041}
+  - component: {fileID: 720456043}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -143302,6 +143303,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720456039}
   m_CullTransparentMesh: 1
+--- !u!95 &720456043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720456039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 543bc8fd58bd0f94f8a633d54eb6ec2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &795243449
 GameObject:
   m_ObjectHideFlags: 0
@@ -143550,9 +143570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e49c1f121979841bab39dfccbfc3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TownHomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
-  HomeTile: {fileID: 11400000, guid: 6f52227cb45a92842bdfd263ec833101, type: 2}
-  FarmPlotTile: {fileID: 11400000, guid: bfe05745e75bfcb46b4fe8fd7bba7041, type: 2}
   InvalidTile: {fileID: 11400000, guid: eda07c2b6bfd95d4ba586e45be8571fd, type: 2}
 --- !u!1 &953002243
 GameObject:
@@ -146425,7 +146442,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900339824}
   m_HandleRect: {fileID: 1900339823}
   m_Direction: 2
-  m_Value: 1.0000001
+  m_Value: 1.0000004
   m_Size: 0.5954661
   m_NumberOfSteps: 0
   m_OnValueChanged:
