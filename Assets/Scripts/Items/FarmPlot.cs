@@ -8,6 +8,9 @@ public class FarmPlot : Structure, Item {
     public string GetImageURL() {
         return "Crops/crop_base";
     }
+    public override string GetGameObjectURL(){
+        return "StructurePrefabs/Crop/Crop";
+    }
 
     public override string GetTileURL(){
         return "TileSprites/crop_base";

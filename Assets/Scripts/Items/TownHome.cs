@@ -9,6 +9,11 @@ public class TownHome : Structure, Item {
     public string GetImageURL() {
         return "Structures/house";
     }
+
+    public override string GetGameObjectURL(){
+        return "";
+    }
+    
     public override string GetTileURL(){
         return "TileSprites/house";
     }

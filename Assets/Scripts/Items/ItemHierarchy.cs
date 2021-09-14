@@ -44,13 +44,24 @@ public abstract class Structure {
     public Structure(double p) {
         price = p;
         level = 1;
+
+        // calling Resources.Load for every structure is really inefficient and bad, must fix later. right now is OK
         tile = (Tile)Resources.Load(GetTileURL());
     }
     public abstract override string ToString();
     public abstract string GetTileURL();
-
+    public abstract string GetGameObjectURL();
     public double GetPrice() {
         return price;
+    }
+    
+
+    public void DestroyGameObject(){
+        GameObject.Destroy(tile.gameObject);
+    }
+
+    public void LoadGameObject(){
+        tile.gameObject = Resources.Load(GetGameObjectURL()) as GameObject;
     }
 
     public void ChangePrice(float newPrice) {

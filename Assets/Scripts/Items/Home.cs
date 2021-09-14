@@ -12,6 +12,10 @@ public class Home : Structure, Item {
     public override string GetTileURL(){
         return "TileSprites/house";
     }
+    
+    public override string GetGameObjectURL(){
+        return "";
+    }
 
     public void OnAction() {
         throw new System.NotImplementedException();
