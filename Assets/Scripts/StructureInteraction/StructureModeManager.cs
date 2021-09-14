@@ -48,14 +48,14 @@ public class StructureModeManager : MonoBehaviour
             // Debug.Log(TilemapStructures.GetTile(currentCell));
             switch(mode){
                 case "Select":
-                    TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
-                    TilemapStructures.SetColor(currentCell, new Color(0.8f, 0.8f, 0.8f, 1f));
-                    TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
+                    // TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
+                    // TilemapStructures.SetColor(currentCell, new Color(0.8f, 0.8f, 0.8f, 1f));
+                    // TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
                     break;
                 case "Delete":
-                    TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
-                    TilemapStructures.SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
-                    TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
+                    // TilemapStructures.SetTileFlags(currentCell, TileFlags.None);
+                    // TilemapStructures.SetColor(currentCell, new Color(1f, 0.3f, 0.3f, 1f));
+                    // TilemapStructures.SetColor(lastCell, new Color(1f, 1f, 1f, 1f));
                     break;
                 default:
                     break;
