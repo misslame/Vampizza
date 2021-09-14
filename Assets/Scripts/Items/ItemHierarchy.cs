@@ -47,6 +47,7 @@ public abstract class Structure {
 
         // calling Resources.Load for every structure is really inefficient and bad, must fix later. right now is OK
         tile = (Tile)Resources.Load(GetTileURL());
+        LoadGameObject();
     }
     public abstract override string ToString();
     public abstract string GetTileURL();
