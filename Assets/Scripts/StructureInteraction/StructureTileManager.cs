@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEditor.Animations;
 
 public class StructureTileManager : MonoBehaviour
 {
@@ -63,7 +64,13 @@ public class StructureTileManager : MonoBehaviour
             return;
         }
 
-
+        if (!structure.GetGameObjectURL().Equals("")){
+            structure.LoadGameObject();
+            structure.GetTile().gameObject.transform.position = TilemapStructures.layoutGrid.CellToWorld(coord);
+            print(structure.GetTile().gameObject.GetComponent<Animation>());
+            print(structure.GetTile().gameObject.name);
+        } 
+        
         // Place Tile, add it to StructureData dictionary, decrement inventory quantity
         TilemapStructures.SetTile(coord, structure.GetTile());
         StructureData.Add(coord, structure);
