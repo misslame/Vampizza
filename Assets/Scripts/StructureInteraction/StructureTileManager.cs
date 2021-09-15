@@ -65,7 +65,7 @@ public class StructureTileManager : MonoBehaviour
         }
 
         if (!structure.GetGameObjectURL().Equals("")){
-            // structure.LoadGameObject();
+            structure.LoadGameObject();
             structure.GetTile().gameObject.transform.position = TilemapStructures.layoutGrid.CellToWorld(coord);
             print(structure.GetTile().gameObject.GetComponent<Animation>());
             print(structure.GetTile().gameObject.name);
