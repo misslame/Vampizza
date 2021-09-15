@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7862569230126796983}
   - component: {fileID: 6058831248395997062}
   - component: {fileID: 2878466777826040133}
-  - component: {fileID: 8076972798920678918}
+  - component: {fileID: 5447802851483439943}
   m_Layer: 0
   m_Name: Crop
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8666738672577626757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -9.45, z: 0}
+  m_LocalPosition: {x: 2, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8076972798920678918
+--- !u!114 &5447802851483439943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
