@@ -6,61 +6,49 @@ using UnityEngine.Tilemaps;
 public class Clock : MonoBehaviour
 {
 
-    // Singleton stuff
-    // i swear this is necessary
-    private static Clock instance = null;
-    public static Clock Instance {
-        get {return instance;}
-    }
+    private static int totalElapsedSeconds = 0;
 
-    [SerializeField] private int secondsInNight;
-    private int totalElapsedSeconds = 0;
-    delegate void QueueAction();
-    private Dictionary<int,List<QueueAction>> Queue = new Dictionary<int,List<QueueAction>>();
-    
+    private delegate StructureController QueueAction();
+
     // Start is called before the first frame update
+    private static Dictionary<int, List<QueueAction>> Queue;
     void Start()
     {
-
-        // singleton stuff 
-        if(instance != null && instance != this) {
-            Destroy(gameObject);
-        } else {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
+        Queue = new Dictionary<int, List<QueueAction>>();
+        print(Queue.Count);
         // eventually will need some code to load/save totalElapsedSeconds + the queue
-
-        InvokeRepeating("count", 0f, 1f);
+        InvokeRepeating("count", 0f, 0.1f);
     }
 
     private void count(){
         totalElapsedSeconds++;
-        checkQueue();
-    }
-
-    private void checkQueue(){
-        // ContainsKey is ~O(1) so doing this every second is fine
-        if (Queue.ContainsKey(totalElapsedSeconds)){
-            print("wowie time to do something!!!111!!111");
-            foreach(QueueAction action in Queue[totalElapsedSeconds]){
-                action();
+        int currentTime = totalElapsedSeconds;
+        if (Queue.ContainsKey(currentTime)){
+            print(currentTime);
+            for (int n = 0; n < Queue[currentTime].Count; n++){
+                Queue[currentTime][n]();
             }
-            Queue.Remove(totalElapsedSeconds);
+            print("timer reached an event");
+            print(currentTime);
+            print(Queue.Count);
+            print(Queue[currentTime].Count);
+        }
+        if (Queue.ContainsKey(currentTime)){
+            Queue.Remove(currentTime);
         }
     }
 
-    public void addStepActionToQueue(StructureController controller, int totalTime){
-        print("added something to queue");
-        QueueAction step = delegate () {
+    public static void addStepActionToQueue(int time, StructureController controller){
+        QueueAction stepAction = () => {
             controller.step();
+            return controller;
         };
-        int targetTime = totalElapsedSeconds + totalTime;
-        if (Queue.ContainsKey(targetTime)){
-            Queue[targetTime].Add(step);
+
+        if (Queue.ContainsKey(totalElapsedSeconds + time)){
+            // what if multiple structures created at the same time? handle that here...
         } else {
-            Queue.Add(targetTime, new List<QueueAction>(){step});
+            print("new key created");
+            Queue.Add(totalElapsedSeconds + time, new List<QueueAction>(){stepAction});
         }
     }
 }
