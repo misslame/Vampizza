@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class StructureController : MonoBehaviour
 {
-    [Header("this field is a length. it is not 0-indexed. if no stages, enter a number <= 0")]
     [SerializeField] private int stages;
-    [SerializeField] private int totalTimeForAllAnimations;
-    private int currentStage = 0;
+    [SerializeField] private int totalSecondsForAllAnimations = 15;
+    [SerializeField] private int currentStage = 1;
 
     private Animator StructureAnimator;
 
@@ -15,12 +14,9 @@ public class StructureController : MonoBehaviour
     void Start()
     {
         StructureAnimator = GetComponent<Animator>();
-        print("structure controller start function");
-        print(StructureAnimator);
         stop();
-        if (stages > 0){
-            Clock.Instance.addStepActionToQueue(this, totalTimeForAllAnimations/3);
-        }
+        print(gameObject.name);
+        addSelfToQueue();
     }
 
     // Update is called once per frame
@@ -34,10 +30,18 @@ public class StructureController : MonoBehaviour
     }
 
     public void step(){
-        if (currentStage < stages - 1){
-            StructureAnimator.SetFloat("speed", 5);
+        // fixes missing reference error.... but why?????
+        if (StructureAnimator == null){
+            print("animator is null...");
+            return;
+        }
+
+        if (currentStage < stages){
+            StructureAnimator.SetFloat("speed", 1);
             currentStage++;
-            Clock.Instance.addStepActionToQueue(this, totalTimeForAllAnimations/3);
+            if (currentStage < stages)
+                this.addSelfToQueue();
+            print(currentStage + "/" + stages);
             print("<color=green>successful step</color>");
         } else {
             print("<color=red>tried to step structure on its last stage</color>");
@@ -46,5 +50,16 @@ public class StructureController : MonoBehaviour
 
     public void reset(){
         
+    }
+
+    public int getCurrentStage(){
+        return currentStage;
+    }
+    public int getTotalStages(){
+        return stages;
+    }
+
+    public void addSelfToQueue(){
+        Clock.addStepActionToQueue(totalSecondsForAllAnimations/stages * 10, this);
     }
 }
