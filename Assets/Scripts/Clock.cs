@@ -6,15 +6,15 @@ using UnityEngine.Tilemaps;
 public class Clock : MonoBehaviour
 {
 
-    private static int totalElapsedSeconds = 0;
+    private static long totalElapsedSeconds = 0;
 
     private delegate StructureController QueueAction();
 
     // Start is called before the first frame update
-    private static Dictionary<int, List<QueueAction>> Queue;
+    private static Dictionary<long, List<QueueAction>> Queue;
     void Start()
     {
-        Queue = new Dictionary<int, List<QueueAction>>();
+        Queue = new Dictionary<long, List<QueueAction>>();
         print(Queue.Count);
         // eventually will need some code to load/save totalElapsedSeconds + the queue
         InvokeRepeating("count", 0f, 0.1f);
@@ -22,7 +22,7 @@ public class Clock : MonoBehaviour
 
     private void count(){
         totalElapsedSeconds++;
-        int currentTime = totalElapsedSeconds;
+        long currentTime = totalElapsedSeconds;
         if (Queue.ContainsKey(currentTime)){
             print(currentTime);
             for (int n = 0; n < Queue[currentTime].Count; n++){
