@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
         level = 1;
         currency = 0;
         citizens = 100;
-        blood = 0;
+        blood = 10;
         playerName = "Chuck";
 
     }
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour {
         level = 1;
         currency = 1000;
         citizens = 100;
-        blood = 0;
+        blood = 10;
         playerName = "Chuck";
         levelBar.SetAmountNeeded(EXP_MODIFIER * level);
         levelDisplay.SetLevelText(level);
