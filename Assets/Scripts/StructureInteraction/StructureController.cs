@@ -5,7 +5,7 @@ using UnityEngine;
 public class StructureController : MonoBehaviour
 {
     [SerializeField] private int stages;
-    [SerializeField] private int totalSecondsForAllAnimations = 15;
+    [SerializeField] private int totalSecondsForAllAnimations;
     [SerializeField] private int currentStage = 1;
 
     private Animator StructureAnimator;
@@ -30,7 +30,7 @@ public class StructureController : MonoBehaviour
     }
 
     public void step(){
-        // fixes missing reference error.... but why?????
+        // just a safeguard... should never happen in production release
         if (StructureAnimator == null){
             print("animator is null...");
             return;
@@ -44,6 +44,7 @@ public class StructureController : MonoBehaviour
             print(currentStage + "/" + stages);
             print("<color=green>successful step</color>");
         } else {
+            // this should never happen
             print("<color=red>tried to step structure on its last stage</color>");
         }
     }
@@ -60,6 +61,6 @@ public class StructureController : MonoBehaviour
     }
 
     public void addSelfToQueue(){
-        Clock.addStepActionToQueue(totalSecondsForAllAnimations/stages * 10, this);
+        Clock.addStepActionToQueue((totalSecondsForAllAnimations* 10)/stages , this);
     }
 }
