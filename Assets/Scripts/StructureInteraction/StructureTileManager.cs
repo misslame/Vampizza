@@ -102,4 +102,22 @@ public class StructureTileManager : MonoBehaviour
             return null;
         }
     }
+
+    public void TryHarvest(Vector3Int coord){
+        Structure structure = GetStructureData(coord);
+        if (structure == null){
+            Debug.Log("harvested structure came up as null");
+            return;
+        }
+        if (structure.GetType() != typeof(FarmPlot)){
+            Debug.Log("This isn't a crop");
+            return;
+        }
+        StructureController controller = TilemapStructures.GetInstantiatedObject(coord).GetComponent<StructureController>();
+        if (!controller.isDoneGrowing()){
+            Debug.Log("not done growing");
+            return;
+        }
+        controller.harvest();
+    }
 }
