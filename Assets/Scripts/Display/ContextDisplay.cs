@@ -81,6 +81,9 @@ public class ContextDisplay : MonoBehaviour
             case "Upgrade":
                 Debug.Log("<color=red>not implemented yet :( </color>");
                 break;
+            case "Harvest":
+                StructureTileManager.Instance.TryHarvest(CurrentSelectedCoord);
+                break;
             default:
                 break;
         }
