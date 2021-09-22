@@ -23,4 +23,15 @@ public class FarmPlot : Structure, Item {
     public override string ToString() {
         return "Farm Plot";
     }
+
+    // public int getCurrentStage(){
+    //     StructureController controller = this.GetTile().gameObject.GetComponent<StructureController>();
+    //     return controller.getCurrentStage();
+    // }
+
+    // public int getTotalStages(){
+    //     StructureController controller = this.GetTile().gameObject.GetComponent<StructureController>();
+    //     return controller.getTotalStages();
+    // }
+
 }
