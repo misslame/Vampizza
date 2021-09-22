@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
 
     private static long totalElapsedSeconds = 0;
 
-    private delegate StructureController QueueAction();
+    private delegate void QueueAction();
 
     // Start is called before the first frame update
     private static Dictionary<long, List<QueueAction>> Queue;
@@ -41,13 +41,11 @@ public class Clock : MonoBehaviour
     public static void addStepActionToQueue(int time, StructureController controller){
         QueueAction stepAction = () => {
             controller.step();
-            return controller;
         };
 
         if (Queue.ContainsKey(totalElapsedSeconds + time)){
             // what if multiple structures created at the same time? handle that here...
         } else {
-            print("new key created");
             Queue.Add(totalElapsedSeconds + time, new List<QueueAction>(){stepAction});
         }
     }
