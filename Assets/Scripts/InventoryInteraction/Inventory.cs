@@ -1,19 +1,19 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 
-public class ItemInventory : Dictionary<string, Item> {
-    public void Add(Item value, string keyPrefix) {
-        base.Add((keyPrefix + Count.ToString()), value);
+public class ItemInventory : List<Item> {
+    public void AddItem(Item item) {
+        base.Add(item);
     }
 
 
     public void Init() {
-
-        Add(new Wheat(3), "res");
-        Add(new Tomato(2), "res");
-        Add(new Blood(69), "res");
-        Add(new TownHome(200), "stc");
-        Add(new FarmPlot(100.00), "stc");
+        AddItem(new Wheat(3));
+        AddItem(new Tomato(2));
+        AddItem(new Blood(69));
+        AddItem(new TownHome(200));
+        AddItem(new FarmPlot(100.00));
     }
 
 }

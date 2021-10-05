@@ -113,18 +113,18 @@ public class InventoryAndShopController : MonoBehaviour {
         EmptyInventoryPanel();
         //Debug.Log(Player.Instance.Inventory.ToString());
 
-        foreach(KeyValuePair<string, Item> entry in inventory) {
-            if (entry.Key.Contains("res")) {
+        foreach(Item item in inventory) {
+            if (item.GetType().BaseType.Equals("Resource")) {
                 newSlot = Instantiate(slotInventoryCopy, transform);
-                newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
+                newSlot.GetComponent<SlotInteraction>().SlotContent = item;
                 showSlot(newSlot);
                 newSlot.transform.SetParent(slotHolder.transform);
 
-                newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
+                newSprite = Resources.Load<Sprite>(item.GetImageURL());
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
                 newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().preserveAspect = true;
 
-                Resource cast = (Resource)entry.Value;
+                Resource cast = (Resource)item;
                 newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + cast.GetQuantity();
             }
         }
@@ -139,16 +139,16 @@ public class InventoryAndShopController : MonoBehaviour {
         GameObject newSlot;
         GameObject slotCopy;
 
-        foreach (KeyValuePair<string, Item> entry in inventory) {
-            if(entry.Key.Contains("stc")) {
-                if (!shopMode && Player.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
+        foreach (Item item in inventory) {
+            if(item.GetType().BaseType.Equals("Structure")) {
+                if (!shopMode && Player.Instance.structureQuantities[item.GetType().ToString()] == 0) {
                     continue;
                 }
                 slotCopy = shopMode ? slotShopCopy:slotInventoryCopy;
 
                 //Create a new slot gameobj from slotCopy, then put the corresponding item object into DragDrop.SlotContent
                 newSlot = Instantiate(slotCopy, transform);
-                newSlot.GetComponent<SlotInteraction>().SlotContent = entry.Value;
+                newSlot.GetComponent<SlotInteraction>().SlotContent = item;
 
                 // Show slot, then update transform
                 showSlot(newSlot);
@@ -156,35 +156,35 @@ public class InventoryAndShopController : MonoBehaviour {
 
                 if (shopMode) {
                     // Do sprite stuff
-                    newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
+                    newSprite = Resources.Load<Sprite>(item.GetImageURL());
                     newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
 
                     slotHolder.cellSize = new Vector2(250f, 80f);
 
-                    newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().text = ((Structure)entry.Value).GetPrice().ToString();
-                    newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = Player.Instance.structureQuantities[entry.Value.GetType().ToString()].ToString();
+                    newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().text = ((Structure)item).GetPrice().ToString();
+                    newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().text = Player.Instance.structureQuantities[item.GetType().ToString()].ToString();
 
                     // Fancy Color changing for the text for feedback. 
-                    if(Player.Instance.CurrentCurrency >= ((Structure)entry.Value).GetPrice()) {
+                    if(Player.Instance.CurrentCurrency >= ((Structure)item).GetPrice()) {
                         newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.green; // If player can afford, make text color green. 
                     } else {
                         newSlot.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If player cannot afford, make text color red. 
                     }
 
-                    if(Player.Instance.structureQuantities[entry.Value.GetType().ToString()] <= 0) {
+                    if(Player.Instance.structureQuantities[item.GetType().ToString()] <= 0) {
                         newSlot.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>().color = Color.red; // If they have 0 of this item in their inventory. 
                     }
                 } else {
-                    if (Player.Instance.structureQuantities[entry.Value.GetType().ToString()] == 0) {
+                    if (Player.Instance.structureQuantities[item.GetType().ToString()] == 0) {
                         continue;
                     }
 
                     slotHolder.cellSize = new Vector2(80f, 80f);
 
                     // Do sprite stuff
-                    newSprite = Resources.Load<Sprite>(entry.Value.GetImageURL());
+                    newSprite = Resources.Load<Sprite>(item.GetImageURL());
                     newSlot.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = newSprite;
-                    newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + Player.Instance.structureQuantities[entry.Value.GetType().ToString()];
+                    newSlot.transform.GetChild(1).gameObject.GetComponent<Text>().text = "x" + Player.Instance.structureQuantities[item.GetType().ToString()];
                 }
             }
         }
