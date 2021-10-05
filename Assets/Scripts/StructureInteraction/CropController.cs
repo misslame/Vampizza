@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StructureController : MonoBehaviour
+public class CropController : MonoBehaviour
 {
     [SerializeField] private int stages;
     [SerializeField] private int totalSecondsForAllAnimations;
@@ -58,7 +58,7 @@ public class StructureController : MonoBehaviour
     }
 
     public void addSelfToQueue(){
-        Clock.addStepActionToQueue((totalSecondsForAllAnimations* 10)/stages , this);
+        Clock.addCropToQueue((totalSecondsForAllAnimations* 10)/stages , this);
     }
 
     public bool isDoneGrowing(){

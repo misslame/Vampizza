@@ -113,7 +113,7 @@ public class StructureTileManager : MonoBehaviour
             Debug.Log("This isn't a crop");
             return;
         }
-        StructureController controller = TilemapStructures.GetInstantiatedObject(coord).GetComponent<StructureController>();
+        CropController controller = TilemapStructures.GetInstantiatedObject(coord).GetComponent<CropController>();
         if (!controller.isDoneGrowing()){
             Debug.Log("not done growing");
             return;

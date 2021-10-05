@@ -38,7 +38,7 @@ public class Clock : MonoBehaviour
         }
     }
 
-    public static void addStepActionToQueue(int time, StructureController controller){
+    public static void addCropToQueue(int time, CropController controller){
         QueueAction stepAction = () => {
             controller.step();
         };
