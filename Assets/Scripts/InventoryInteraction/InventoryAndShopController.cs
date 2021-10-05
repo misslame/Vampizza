@@ -111,10 +111,9 @@ public class InventoryAndShopController : MonoBehaviour {
         GameObject newSlot;
 
         EmptyInventoryPanel();
-        //Debug.Log(Player.Instance.Inventory.ToString());
 
         foreach(Item item in inventory) {
-            if (item.GetType().BaseType.Equals("Resource")) {
+            if (item.GetType().IsSubclassOf(typeof(Resource))) {
                 newSlot = Instantiate(slotInventoryCopy, transform);
                 newSlot.GetComponent<SlotInteraction>().SlotContent = item;
                 showSlot(newSlot);
@@ -140,7 +139,7 @@ public class InventoryAndShopController : MonoBehaviour {
         GameObject slotCopy;
 
         foreach (Item item in inventory) {
-            if(item.GetType().BaseType.Equals("Structure")) {
+            if(item.GetType().IsSubclassOf(typeof(Structure))) {
                 if (!shopMode && Player.Instance.structureQuantities[item.GetType().ToString()] == 0) {
                     continue;
                 }
