@@ -17,6 +17,7 @@ public class StructureModeManager : MonoBehaviour
     private Tilemap TilemapStructures;
     Vector3Int currentCell;
     Vector3Int lastCell;
+    Structure currentHoveredStructure;
 
     // Start is called before the first frame update
     void Start()
@@ -61,20 +62,25 @@ public class StructureModeManager : MonoBehaviour
                     break;
             }
         }
+        //
+        try {
+            currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
 
-        Structure currentHoveredStructure = StructureTileManager.Instance.GetStructureData(currentCell);
+            if (click0 && mode == "Delete" && currentHoveredStructure != null){
+                StructureTileManager.Instance.PutAwayStructure(currentCell);
+            }
+            if (click1 && mode == "Select" && currentHoveredStructure != null){
+                string title = "Lvl " + currentHoveredStructure.GetLevel() + " - " + currentHoveredStructure.ToString();
+                GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
+                .MoveToCursor(title, currentCell);
+            }
 
-        if (click0 && mode == "Delete" && currentHoveredStructure != null){
-            StructureTileManager.Instance.PutAwayStructure(currentCell);
+            
+            lastCell.Set(currentCell.x, currentCell.y, currentCell.z);
         }
-        if (click1 && mode == "Select" && currentHoveredStructure != null){
-            string title = "Lvl " + currentHoveredStructure.GetLevel() + " - " + currentHoveredStructure.ToString();
-            GameObject.FindGameObjectWithTag("ContextMenu").GetComponent<ContextDisplay>()
-            .MoveToCursor(title, currentCell);
-        }
+        catch (System.Exception e){
 
-        
-        lastCell.Set(currentCell.x, currentCell.y, currentCell.z);
+        }
     }
 
 
