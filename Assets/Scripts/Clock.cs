@@ -24,14 +24,13 @@ public class Clock : MonoBehaviour
         totalElapsedSeconds++;
         long currentTime = totalElapsedSeconds;
         if (Queue.ContainsKey(currentTime)){
-            print(currentTime);
             for (int n = 0; n < Queue[currentTime].Count; n++){
                 Queue[currentTime][n]();
             }
-            print("timer reached an event");
-            print(currentTime);
-            print(Queue.Count);
-            print(Queue[currentTime].Count);
+            // print("timer reached an event");
+            // print(currentTime);
+            // print(Queue.Count);
+            // print(Queue[currentTime].Count);
         }
         if (Queue.ContainsKey(currentTime)){
             Queue.Remove(currentTime);

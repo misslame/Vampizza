@@ -43,8 +43,7 @@ public class CropController : MonoBehaviour
             if (currentStage < stages){
                 this.addSelfToQueue();
             }
-            print(currentStage + "/" + currentStage);
-            Debug.Log(this.GetInstanceID());
+            // Debug.Log(this.GetInstanceID());
         } else {
             // this should never happen
             print("<color=red>tried to step structure on its last stage</color>");
@@ -55,6 +54,7 @@ public class CropController : MonoBehaviour
         StructureAnimator.SetFloat("speed", 2);
         addSelfToQueue();
         currentStage = 1;
+        // logic for adding crop to inventory
     }
 
     public void addSelfToQueue(){
@@ -62,8 +62,6 @@ public class CropController : MonoBehaviour
     }
 
     public bool isDoneGrowing(){
-        Debug.Log(string.Format("{0}/{1}", currentStage, stages));
-        Debug.Log(this.GetInstanceID());
         return currentStage == stages;
     }
 }
