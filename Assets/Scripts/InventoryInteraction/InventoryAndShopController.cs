@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class InventoryAndShopController : MonoBehaviour {
+public class InventoryAndShopController : MonoBehaviour,  IDeselectHandler, IPointerEnterHandler, IPointerExitHandler {
 
     // Singleton stuff
     private static InventoryAndShopController instance = null;
@@ -30,6 +30,7 @@ public class InventoryAndShopController : MonoBehaviour {
     [SerializeField] private GridLayoutGroup slotHolder;
     [SerializeField] private GameObject slotInventoryCopy;
     [SerializeField] private GameObject slotShopCopy;
+    private bool mouseIsOver = false;
     private void Awake() {
         if(instance != null && instance != this) {
             Destroy(gameObject);
@@ -50,6 +51,24 @@ public class InventoryAndShopController : MonoBehaviour {
 
         PopulateResourcesTab();
     }
+    public void OnDeselect(BaseEventData eventData)
+    {
+        Animator animator = gameObject.GetComponent<Animator>();
+        bool isOpen = animator.GetBool("ShowInventory");
+        if (isOpen)
+            animator.SetBool("ShowInventory", false);
+    }
+ 
+    public void OnPointerEnter(PointerEventData eventData) {
+        mouseIsOver = true;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        mouseIsOver = false;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+
     private void hideSlot(GameObject slot){
         // Hide component via set alpha to 0 and prevent receiving of input events
         slot.GetComponent<CanvasGroup>().alpha = 0f;
@@ -81,13 +100,16 @@ public class InventoryAndShopController : MonoBehaviour {
 
     public void ShowHideMenu() {
         Animator animator = gameObject.GetComponent<Animator>();
+        bool isOpen = animator.GetBool("ShowInventory");
 
         if (animator != null) {
-            bool isOpen = animator.GetBool("ShowInventory");
             animator.SetBool("ShowInventory", !isOpen);
             if (currentTab == "Structures" && !isOpen){
                 PopulateStructuresTab();
             }
+        }
+        if (!isOpen && !mouseIsOver){
+            EventSystem.current.SetSelectedGameObject(gameObject);
         }
     }
 
