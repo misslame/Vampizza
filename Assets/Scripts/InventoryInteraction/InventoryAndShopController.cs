@@ -55,7 +55,7 @@ public class InventoryAndShopController : MonoBehaviour,  IDeselectHandler, IPoi
     {
         Animator animator = gameObject.GetComponent<Animator>();
         bool isOpen = animator.GetBool("ShowInventory");
-        if (isOpen)
+        if (isOpen && !mouseIsOver)
             animator.SetBool("ShowInventory", false);
     }
  
