@@ -1,5 +1,6 @@
 public class FarmPlot : Structure, Item {
     public FarmPlot(double price) : base(price) {}
+    public FarmPlot() : base(100) {}
 
     public string GetDescription() {
         return "a structure";

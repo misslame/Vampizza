@@ -1,6 +1,7 @@
 public class TownHome : Structure, Item {
 
     public TownHome(double price) : base(price) { }
+    public TownHome() : base(200) { }
 
     public string GetDescription() {
         return "a structure";
