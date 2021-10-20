@@ -6,6 +6,7 @@ public class CropController : MonoBehaviour
 {
     [SerializeField] private int stages;
     [SerializeField] private int totalSecondsForAllAnimations;
+    [SerializeField] private int yieldAmount;
     private int currentStage;
 
     private Animator StructureAnimator;
@@ -54,7 +55,9 @@ public class CropController : MonoBehaviour
         StructureAnimator.SetFloat("speed", 2);
         addSelfToQueue();
         currentStage = 1;
-        // logic for adding crop to inventory
+
+        // this is dumb, ugly, and terrible
+        InventoryAndShopController.Instance.inventory.AddItem(((Item)new Wheat(yieldAmount)));
     }
 
     public void addSelfToQueue(){
