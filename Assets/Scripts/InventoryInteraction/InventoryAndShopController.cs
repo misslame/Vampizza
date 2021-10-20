@@ -10,8 +10,9 @@ public class InventoryAndShopController : MonoBehaviour,  IDeselectHandler, IPoi
         get { return instance; } 
     }
 
-    //PLAYER'S PERSONAL INVENTORY OF ITEMS (STRUCTURES/RESOURCES)
-    private ItemInventory inventory = new ItemInventory();
+    // PLAYER'S PERSONAL INVENTORY OF ITEMS (STRUCTURES/RESOURCES)
+    // TODO: protect this better, still need access to AddItem 
+    public ItemInventory inventory = new ItemInventory();
 
     // Toggle object mechanics. 
     [SerializeField] private RectTransform uiHandleRectTransform;
@@ -106,6 +107,9 @@ public class InventoryAndShopController : MonoBehaviour,  IDeselectHandler, IPoi
             animator.SetBool("ShowInventory", !isOpen);
             if (currentTab == "Structures" && !isOpen){
                 PopulateStructuresTab();
+            }
+            if (currentTab == "Resources" && !isOpen){
+                PopulateResourcesTab();
             }
         }
         if (!isOpen && !mouseIsOver){
