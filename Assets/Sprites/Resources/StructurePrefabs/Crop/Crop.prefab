@@ -117,4 +117,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stages: 3
   totalSecondsForAllAnimations: 9
-  currentStage: 1
+  yieldAmount: 5
