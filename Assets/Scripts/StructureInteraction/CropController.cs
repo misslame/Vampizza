@@ -1,3 +1,8 @@
+/*
+ * CropController.cs
+ * Controls interactions with crop structure, controls crop growth and harvesting
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,8 @@
+/*
+ * StructureModeController.cs
+ * Handles the different structure modes (deletion mode, selection mode, ...)
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

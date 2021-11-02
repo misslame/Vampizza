@@ -1,3 +1,9 @@
+/*
+ * StructureTileManager.cs
+ * Handles structure tile interactions, including building, deleting, harvesting, and data collection
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
