@@ -1,3 +1,8 @@
+/*
+ * ShopToggle.cs
+ * Handles toggling of shop via shop switch in inventory
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

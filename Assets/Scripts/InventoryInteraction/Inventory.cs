@@ -1,3 +1,8 @@
+/*
+ * Inventory.cs
+ * Collection of inventory items that will be shown as slots in the inventory HUD element.
+ */
+
 using System.Collections.Generic;
 using UnityEngine;
 

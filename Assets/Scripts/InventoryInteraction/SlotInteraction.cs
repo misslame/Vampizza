@@ -1,3 +1,8 @@
+/*
+ * SlotInteraction.cs
+ * Handles interaction with inventory slots, specifically dragging structures out of the inventory
+ */
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;

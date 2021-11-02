@@ -1,3 +1,9 @@
+/*
+ * InventoryAndShopController.cs
+ * Handles inventory display interactions, specifically displaying items and the 
+ * inventory itself.
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
