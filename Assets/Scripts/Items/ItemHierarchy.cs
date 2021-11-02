@@ -1,3 +1,9 @@
+/*
+ * ItemHierarchy.cs
+ * Class hierarchy for items that can be stored in inventory.
+ * The two item types are structures and resources.
+ */
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 public interface Item {
