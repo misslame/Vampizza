@@ -1,3 +1,8 @@
+/*
+ * CameraController.cs
+ * Camera movement code with mouse or keyboard
+ */
+
 using System;
 using UnityEngine;
 

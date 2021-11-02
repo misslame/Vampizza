@@ -1,3 +1,8 @@
+/*
+ * Clock.s
+ * Keeps track of in game time, queues structure events like crop growth
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
