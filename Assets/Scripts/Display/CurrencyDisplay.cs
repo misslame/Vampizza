@@ -1,3 +1,8 @@
+/*
+ * CurrencyDisplay.cs
+ * Controls currency number HUD element
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

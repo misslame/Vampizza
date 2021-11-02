@@ -1,3 +1,10 @@
+/*
+ * ContextDisplay.cs
+ * Controls context display popup menu (right clicking structures)
+ * Handles pointer interactions with context menu (leaving menu, clicking on menu elements)
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

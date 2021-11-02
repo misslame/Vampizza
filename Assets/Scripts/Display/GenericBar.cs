@@ -1,3 +1,8 @@
+/*
+ * GenericBar.cs
+ * Generic implementation of progress bar HUD element
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

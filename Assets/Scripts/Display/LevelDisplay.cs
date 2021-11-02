@@ -1,3 +1,8 @@
+/*
+ * LevelDisplay.cs
+ * Controls level number HUD element
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 

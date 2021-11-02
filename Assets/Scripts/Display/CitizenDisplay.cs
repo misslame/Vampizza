@@ -1,3 +1,8 @@
+/*
+ * CitizenDisplay.cs
+ * Controls citizen number HUD element
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 
